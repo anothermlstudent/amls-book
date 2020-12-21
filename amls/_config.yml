@@ -66,10 +66,3 @@ repository:
   url                       : https://github.com/anothermlstudent/amls-book  # The URL to your book's repository
   path_to_book              : ""  # A path to your book's folder, relative to the repository root.
   branch                    : gh-pages  # Which branch of the repository should be used when creating links
-
-#######################################################################################
-# Advanced and power-user settings
-sphinx:
-  extra_extensions          :   # A list of extra extensions to load by Sphinx (added to those already used by JB).
-  local_extensions          :   # A list of local extensions to load by sphinx specified by "name: path" items
-  config                    :   # key-value pairs to directly over-ride the Sphinx configuration

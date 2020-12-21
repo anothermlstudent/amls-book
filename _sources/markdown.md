@@ -130,7 +130,7 @@ see [The MyST-NB documentation](https://myst-nb.readthedocs.io/).
    type="text/javascript"
    src="https://utteranc.es/client.js"
    async="async"
-   repo="executablebooks/jupyter-book"
+   repo="anothermlstudent/amls-book"
    issue-term="pathname"
    theme="github-light"
    label="💬 comment"

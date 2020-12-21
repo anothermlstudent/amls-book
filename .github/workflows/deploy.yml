@@ -25,6 +25,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
+        pip install --no-input sphinxcontrib_bibtex==1.0.0
 
     # Build the book
     - name: Build the book

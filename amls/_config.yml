@@ -27,6 +27,12 @@ execute:
   stderr_output             : show  # One of 'show', 'remove', 'remove-warn', 'warn', 'error', 'severe'
   
 #######################################################################################
+# Parse and render settings
+parse:
+  myst_extended_syntax      : false  # enable MyST extended syntax support (see documents for details)
+  myst_url_schemes          : [mailto, http, https]  # URI schemes that will be recognised as external URLs in Markdown links
+
+#######################################################################################
 # LaTeX-specific settings
 latex:
   latex_engine              : pdflatex  # one of 'pdflatex', 'xelatex' (recommended for unicode), 'luatex', 'platex', 'uplatex'

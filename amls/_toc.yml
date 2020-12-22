@@ -3,6 +3,3 @@
 - file: intro
 - file: content
 - file: 001_gaussian-proceses
-  sections:
-    - file: markdown
-    - file: notebooks

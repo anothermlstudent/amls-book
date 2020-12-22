@@ -17,44 +17,25 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import numpy as np
-import matplotlib.pyplot as plt
-import scipy
-import plotly
-np.random.seed(42)
+from sklearn.gaussian_process import GaussianProcessRegressor
+from sklearn.gaussian_process.kernels import RBF, ConstantKernel as C
 
-N = 10
 
-# Create  a grid of N points between 0 and 1
-x = np.linspace(0, 1, N)
+kernel = C(1.0, (1e-3, 1e3)) * RBF(0.004)
+gp = GaussianProcessRegressor(kernel=kernel,random_state=0, n_restarts_optimizer=10)
 
-# Sample N independendent samples from a Normal(mu=0, sigma=1)
-# Each sample is independent of each other 
-y = np.random.normal(0, 1, N)
-plt.plot(x, y, 'o-', label='N i.i.d samples from univariate normal')
-
-# Sample N samples where  y_i ~ Normal(mu=y_{i-1}, sigma=1)
-y = np.zeros_like(x)
-for i in range(N):
-    y[i] = np.random.normal(y[i-1], 1)
-plt.plot(x, y, 'o-', label='$\mu = y_{i-1}$')
-
-# Sample 1 sample from an N-dimensional gaussian
-y = np.random.multivariate_normal(np.zeros(N), np.eye(N))
-plt.plot(x, y, 'o-', label='1 sample from N-dimensional gaussian')
-
-plt.legend()
+gp.fit(x_train, y_train)
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m<ipython-input-2-590f9f395269>[0m in [0;36m<module>[0;34m[0m
-[1;32m      2[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m [0;32mimport[0m [0mscipy[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 4[0;31m [0;32mimport[0m [0mplotly[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      5[0m [0mnp[0m[0;34m.[0m[0mrandom[0m[0;34m.[0m[0mseed[0m[0;34m([0m[0;36m42[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      6[0m [0;34m[0m[0m
+[0;32m<ipython-input-20-78379f01f89b>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mgaussian_process[0m [0;32mimport[0m [0mGaussianProcessRegressor[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mgaussian_process[0m[0;34m.[0m[0mkernels[0m [0;32mimport[0m [0mRBF[0m[0;34m,[0m [0mConstantKernel[0m [0;32mas[0m [0mC[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0mkernel[0m [0;34m=[0m [0mC[0m[0;34m([0m[0;36m1.0[0m[0;34m,[0m [0;34m([0m[0;36m1e-3[0m[0;34m,[0m [0;36m1e3[0m[0;34m)[0m[0;34m)[0m [0;34m*[0m [0mRBF[0m[0;34m([0m[0;36m0.004[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mModuleNotFoundError[0m: No module named 'plotly'
-ModuleNotFoundError: No module named 'plotly'
+[0;31mModuleNotFoundError[0m: No module named 'sklearn'
+ModuleNotFoundError: No module named 'sklearn'
 

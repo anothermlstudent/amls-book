@@ -1,5 +1,5 @@
 # Table of contents
 # Learn more at https://jupyterbook.org/customize/toc.html
 - file: intro
-- file: content
 - file: 001_gaussian-proceses
+- file: 002_bias-vs-variance

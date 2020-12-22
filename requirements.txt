@@ -5,3 +5,4 @@ ghp-import
 plotly
 scipy==1.5.4
 sklearn
+pandas

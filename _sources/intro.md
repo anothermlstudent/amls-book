@@ -1,7 +1,4 @@
-Welcome to your Jupyter Book
-============================
+Welcome to another machine learning student (note)book
+===============================================
 
-This is a small sample book to give you a feel for how book content is
-structured.
-
-Check out the content pages bundled with this sample book to get started.
+As the once that belongs to many students out there, this is another machine learning student notebook where I collect notes on topics I would like to learn.

@@ -17,32 +17,31 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-def exponentiated_quadratic(X:numpy.array, Xp:numpy.array, sigma_f:float=1, l:float=1):
-    """Computes the Gram matrix Kij = k(xi,xj).
-
-    Args:
-        X (numpy.array): An (m,n) array representing m observations in an n-dimensional space. Inputs are converted to float.  
-        Xp (numpy.array): An (m,n) array representing m observations in an n-dimensional space. Inputs are converted to float.  
-        sigma_f (float, optional):  The output standard deviation determines the average distance of your function away from its mean. Defaults to 1.
-        l (float, optional): The lengthscale determines the length of the 'wiggles' in the function. Defaults to 1.
-
-    Returns:
-        numpy.array: Gram matrix
-    """
-    sq_norm = spatial.distance.cdist(X, Xp, 'sqeuclidean')
-    K = sigma_f**2 * np.exp((-sq_norm/(2*l**2)))
-    return K
+# Plot the function, the prediction and the 95% confidence interval based on
+# the MSE
+plt.figure(figsize=(19,8))
+plt.plot(x_test.ravel(), y.ravel(), 'r:', label=r'$f(x) = x\,\sin(x)$')
+plt.plot(x_train, y_train, 'r.', markersize=10, label='Observations')
+plt.plot(x_test, y_pred, 'b-', label='Prediction')
+plt.fill(np.concatenate([x_test, x_test[::-1]]),
+         np.concatenate([y_pred - 1.9600 * sigma,
+                        (y_pred + 1.9600 * sigma)[::-1]]),
+         alpha=.5, fc='b', ec='None', label='95% confidence interval')
+plt.xlabel('$x$')
+plt.ylabel('$f(x)$')
+plt.ylim(-3, 3)
+plt.legend(loc='upper left')
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-1-b23d5f7ebc8c>[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0;32mdef[0m [0mexponentiated_quadratic[0m[0;34m([0m[0mX[0m[0;34m:[0m[0mnumpy[0m[0;34m.[0m[0marray[0m[0;34m,[0m [0mXp[0m[0;34m:[0m[0mnumpy[0m[0;34m.[0m[0marray[0m[0;34m,[0m [0msigma_f[0m[0;34m:[0m[0mfloat[0m[0;34m=[0m[0;36m1[0m[0;34m,[0m [0ml[0m[0;34m:[0m[0mfloat[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      2[0m     """Computes the Gram matrix Kij = k(xi,xj).
-[1;32m      3[0m [0;34m[0m[0m
-[1;32m      4[0m     [0mArgs[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      5[0m         [0mX[0m [0;34m([0m[0mnumpy[0m[0;34m.[0m[0marray[0m[0;34m)[0m[0;34m:[0m [0mAn[0m [0;34m([0m[0mm[0m[0;34m,[0m[0mn[0m[0;34m)[0m [0marray[0m [0mrepresenting[0m [0mm[0m [0mobservations[0m [0;32min[0m [0man[0m [0mn[0m[0;34m-[0m[0mdimensional[0m [0mspace[0m[0;34m.[0m [0mInputs[0m [0mare[0m [0mconverted[0m [0mto[0m [0mfloat[0m[0;34m.[0m[0;34m[0m[0;34m[0m[0m
+[0;32m<ipython-input-18-6a94b2975418>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# Plot the function, the prediction and the 95% confidence interval based on[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;31m# the MSE[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mplt[0m[0;34m.[0m[0mfigure[0m[0;34m([0m[0mfigsize[0m[0;34m=[0m[0;34m([0m[0;36m19[0m[0;34m,[0m[0;36m8[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mx_test[0m[0;34m.[0m[0mravel[0m[0;34m([0m[0;34m)[0m[0;34m,[0m [0my[0m[0;34m.[0m[0mravel[0m[0;34m([0m[0;34m)[0m[0;34m,[0m [0;34m'r:'[0m[0;34m,[0m [0mlabel[0m[0;34m=[0m[0;34mr'$f(x) = x\,\sin(x)$'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mx_train[0m[0;34m,[0m [0my_train[0m[0;34m,[0m [0;34m'r.'[0m[0;34m,[0m [0mmarkersize[0m[0;34m=[0m[0;36m10[0m[0;34m,[0m [0mlabel[0m[0;34m=[0m[0;34m'Observations'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mNameError[0m: name 'numpy' is not defined
-NameError: name 'numpy' is not defined
+[0;31mNameError[0m: name 'plt' is not defined
+NameError: name 'plt' is not defined
 

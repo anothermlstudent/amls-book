@@ -6,3 +6,4 @@ plotly
 scipy==1.5.4
 sklearn
 pandas
+seaborn==0.11.0

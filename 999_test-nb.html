@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&lt;no title&gt; &#8212; amls</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "github-org/github-repo");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://anothermlstudent.github.io/amls-book/999_test-nb.html" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Bias-Variance trade-off (theory)" href="002_bias-vs-variance.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://anothermlstudent.github.io/amls-book/999_test-nb.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="&lt;no title&gt;" />
+<meta property="og:description" content="" />
+<meta property="og:image"       content="https://anothermlstudent.github.io/amls-book/_static/logo-amls.png" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo-amls.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">amls</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to another machine learning student (note)book
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="001_gaussian-proceses.html">
+   Gaussian Processes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="002_bias-vs-variance.html">
+   Bias-Variance trade-off (theory)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="002_bias-vs-variance.html#bias-variance-trade-off-my-notes">
+   Bias-Variance trade-off (my notes)
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/999_test-nb.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/anothermlstudent/amls-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/anothermlstudent/amls-book/issues/new?title=Issue%20on%20page%20%2F999_test-nb.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/anothermlstudent/amls-book/edit/main/amls/999_test-nb.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/anothermlstudent/amls-book/main?urlpath=tree/amls/999_test-nb.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/anothermlstudent/amls-book/blob/main/amls/999_test-nb.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="simple nav section-nav flex-column">
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">out1</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+<span class="n">out2</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+<span class="n">data1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="mi">50</span><span class="p">))</span>
+<span class="n">data2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="mi">100</span><span class="p">))</span>
+
+<span class="n">tab</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Tab</span><span class="p">(</span><span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="n">out1</span><span class="p">,</span> <span class="n">out2</span><span class="p">])</span>
+<span class="n">tab</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;First&#39;</span><span class="p">)</span>
+<span class="n">tab</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Second&#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">out1</span><span class="p">:</span>
+    <span class="n">fig1</span><span class="p">,</span> <span class="n">axes1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+    <span class="n">data1</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">fig1</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">out2</span><span class="p">:</span>
+    <span class="n">fig2</span><span class="p">,</span> <span class="n">axes2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+    <span class="n">data2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">fig2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "d8a4517bfb9540ce91a210af22018de8"}
+</script></div>
+</div>
+
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"50f596b985f045979bf68619a51eaade": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "56b6a693d16e4b72ba2bdd9b3ce598ea": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_50f596b985f045979bf68619a51eaade", "msg_id": "", "outputs": [{"output_type": "display_data", "metadata": {"needs_background": "light"}, "data": {"text/plain": "<Figure size 432x288 with 1 Axes>", "image/png": "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\n"}}]}}, "8f8317923c3a4240ae83c3905aa1bea8": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "4f5895fff434493c867d057715102802": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_8f8317923c3a4240ae83c3905aa1bea8", "msg_id": "", "outputs": [{"output_type": "display_data", "metadata": {"needs_background": "light"}, "data": {"text/plain": "<Figure size 432x288 with 1 Axes>", "image/png": "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\n"}}]}}, "fc33c5417a8e4223905472a7629c623d": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d8a4517bfb9540ce91a210af22018de8": {"model_name": "TabModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TabModel", "_titles": {"0": "First", "1": "Second"}, "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TabView", "box_style": "", "children": ["IPY_MODEL_56b6a693d16e4b72ba2bdd9b3ce598ea", "IPY_MODEL_4f5895fff434493c867d057715102802"], "layout": "IPY_MODEL_fc33c5417a8e4223905472a7629c623d", "selected_index": 0}}}, "version_major": 2, "version_minor": 0}
+</script>
+
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="002_bias-vs-variance.html" title="previous page">Bias-Variance trade-off (theory)</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By AnotherMLStudent<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'G-ZJ79CQ4Z6Z', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

@@ -1,7 +1,7 @@
 # Table of contents
 # Learn more at https://jupyterbook.org/customize/toc.html
 - file: intro
-#- file: 001_dataset-regression
+- file: 001_dataset-regression
 #- file: 004_bias-vs-variance(theory)
 #- file: 005_bias-vs-variance(practice)
 #- file: 007_gaussian-processes

@@ -297,6 +297,11 @@ commentsRunWhenDOMLoaded(addUtterances);
    Ploting the datasets
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -330,8 +335,8 @@ $<span class="math notranslate nohighlight">\( Y = f(x) + \epsilon.\)</span>$</p
 \[ Y|X \sim \mathcal{N}(y|\mu =f(x),{\sigma}^2 = 0.5)\]</div>
 <div class="math notranslate nohighlight">
 \[ X \sim \mathcal{U}(x|a=0,b=10)\]</div>
-<p>Esto se conoce como un modelos jerarquico (<span class="bibtex" id="id1">[casella_statistical_2001]</span>, Pag 162) y es para mí una forma muy simple e intuitiva de describir un proceso de generación de datos.</p>
-<p>Para “usar la máquina” descripta de esta manera y generar una muestra <span class="math notranslate nohighlight">\((x_0,y_0)\)</span>, empezamos sampleando <span class="math notranslate nohighlight">\(x_0\)</span> de la distribución uniforme. Después, “pasamos” <span class="math notranslate nohighlight">\(x_0\)</span> por <span class="math notranslate nohighlight">\(f\)</span> para obtener <span class="math notranslate nohighlight">\(f(x_0)\)</span>. Finalmente sampleamos <span class="math notranslate nohighlight">\(y_0\)</span> de una normal con <span class="math notranslate nohighlight">\(\mu=f(x_0)\)</span> y <span class="math notranslate nohighlight">\(\sigma^2 = 0.5\)</span>. A este proceso de generar muestras se lo conoce como ancestral sampling (<span class="bibtex" id="id2">[bishop_pattern_2007]</span>, Pag 365).</p>
+<p>Esto se conoce como un modelos jerarquico (<a class="bibtex reference internal" href="#casella-statistical-2001" id="id1">[CB01]</a>, Pag 162) y es para mí una forma muy simple e intuitiva de describir un proceso de generación de datos.</p>
+<p>Para “usar la máquina” descripta de esta manera y generar una muestra <span class="math notranslate nohighlight">\((x_0,y_0)\)</span>, empezamos sampleando <span class="math notranslate nohighlight">\(x_0\)</span> de la distribución uniforme. Después, “pasamos” <span class="math notranslate nohighlight">\(x_0\)</span> por <span class="math notranslate nohighlight">\(f\)</span> para obtener <span class="math notranslate nohighlight">\(f(x_0)\)</span>. Finalmente sampleamos <span class="math notranslate nohighlight">\(y_0\)</span> de una normal con <span class="math notranslate nohighlight">\(\mu=f(x_0)\)</span> y <span class="math notranslate nohighlight">\(\sigma^2 = 0.5\)</span>. A este proceso de generar muestras se lo conoce como ancestral sampling (<a class="bibtex reference internal" href="#bishop-pattern-2007" id="id2">[Bis07]</a>, Pag 365).</p>
 <p>Noten que las dos descripciones, aunque son ligeramente diferentes, son completamente equivalentes (van a generar datos con exactamente la misma distribución) y me permiten generar tantos pares <span class="math notranslate nohighlight">\((x,y)\)</span> como queramos.</p>
 </div>
 <div class="section" id="data-distribution-pr-x-y">
@@ -485,47 +490,8 @@ $<span class="math notranslate nohighlight">\( Y = f(x) + \epsilon.\)</span>$</p
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Xy_train_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;data/Xy_train.csv&quot;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">Xy_test_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;data/Xy_test.csv&quot;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">3</span><span class="n">d9a2cb3a9a5</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">Xy_train_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;data/Xy_train.csv&quot;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">Xy_test_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;data/Xy_test.csv&quot;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/pandas/core/generic.py</span> in <span class="ni">to_csv</span><span class="nt">(self, path_or_buf, sep, na_rep, float_format, columns, header, index, index_label, mode, encoding, compression, quoting, quotechar, line_terminator, chunksize, date_format, doublequote, escapechar, decimal, errors, storage_options)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3398</span>             <span class="n">doublequote</span><span class="o">=</span><span class="n">doublequote</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3399</span>             <span class="n">escapechar</span><span class="o">=</span><span class="n">escapechar</span><span class="p">,</span>
-<span class="ne">-&gt; </span><span class="mi">3400</span>             <span class="n">storage_options</span><span class="o">=</span><span class="n">storage_options</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3401</span>         <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3402</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/pandas/io/formats/format.py</span> in <span class="ni">to_csv</span><span class="nt">(self, path_or_buf, encoding, sep, columns, index_label, mode, compression, quoting, quotechar, line_terminator, chunksize, date_format, doublequote, escapechar, errors, storage_options)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1081</span>             <span class="n">formatter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fmt</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1082</span>         <span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1083</span>         <span class="n">csv_formatter</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1084</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1085</span>         <span class="k">if</span> <span class="n">created_buffer</span><span class="p">:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/pandas/io/formats/csvs.py</span> in <span class="ni">save</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">232</span>             <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">233</span>             <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">compression</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">234</span>             <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_options</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">235</span>         <span class="p">)</span> <span class="k">as</span> <span class="n">handles</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">236</span> 
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">642</span>                 <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">643</span>                 <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">644</span>                 <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">645</span>             <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">646</span>         <span class="k">else</span><span class="p">:</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;data/Xy_train.csv&#39;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Xy_train_df.to_csv(&quot;data/Xy_train.csv&quot;,index=False)</span>
+<span class="c1"># Xy_test_df.to_csv(&quot;data/Xy_test.csv&quot;,index=False)</span>
 </pre></div>
 </div>
 </div>
@@ -566,6 +532,18 @@ $<span class="math notranslate nohighlight">\( Y = f(x) + \epsilon.\)</span>$</p
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p id="bibtex-bibliography-001_dataset-regression-0"><dl class="citation">
+<dt class="bibtex label" id="bishop-pattern-2007"><span class="brackets"><a class="fn-backref" href="#id2">Bis07</a></span></dt>
+<dd><p>Christopher Bishop. <em>Pattern Recognition and Machine Learning</em>. Springer, 2007. ISBN 978-0387310732.</p>
+</dd>
+<dt class="bibtex label" id="casella-statistical-2001"><span class="brackets"><a class="fn-backref" href="#id1">CB01</a></span></dt>
+<dd><p>George Casella and Roger Berger. <em>Statistical Inference</em>. Duxbury Resource Center, June 2001. ISBN 0534243126.</p>
+</dd>
+</dl>
+</p>
 </div>
 </div>
 

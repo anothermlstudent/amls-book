@@ -10,7 +10,7 @@
     - file: 995_kernel-demo
     - file: 996_ploting-tools
     - file: 997_appendix
--part: Receipes
+- part: Receipes
     chapters:
     - file: 998_basic-widgets
     - file: 999_jupyterbook_cookbook

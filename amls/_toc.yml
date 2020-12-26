@@ -6,7 +6,7 @@
 - file: 005_bias-vs-variance(practice)
 - file: 007_gaussian-processes
 - file: 994_jupyterbook_cookbook
-#- file: 995_kernel-demo
+- file: 995_kernel-demo
 - file: 996_ploting-tools
 - file: 997_appendix
 #- file: 998_basic-widgets

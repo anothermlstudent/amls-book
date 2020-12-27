@@ -400,12 +400,12 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="section" id="how-good-is-this-algorithm">
 <h2>How good is this algorithm?<a class="headerlink" href="#how-good-is-this-algorithm" title="Permalink to this headline">¶</a></h2>
 <p>It doesn’t make sense to quantify how good your algorithm is over all possible data-generating distributions, since <strong>no free lunch theorem</strong> proves that all algorithm have the same average performance, instead you want to quantify (measure) how good is your algorithm at a group of data-generating distributions related to a specific problem, in particular, you want to estimate how good the algorithm will be when it will process new data (data outside the one that was used for training)</p>
-<p>“The <strong>no free lunch theorem</strong> for machine learning <a class="bibtex reference internal" href="#wolpert-free-1997" id="id1">[WM97]</a> states that, averaged over all possible data-generating distributions, every classification algorithm has the same error rate when classifying previously unobserved points” From <a class="bibtex reference internal" href="008_sklearn-pipeline-example.html#goodfellow-deep-2016" id="id2">[GBC16]</a>, Pag. 113</p>
+<p>“The <strong>no free lunch theorem</strong> for machine learning <a class="bibtex reference internal" href="#wolpert-free-1997" id="id1">[WM97]</a> states that, averaged over all possible data-generating distributions, every classification algorithm has the same error rate when classifying previously unobserved points” From <a class="bibtex reference internal" href="#goodfellow-deep-2016" id="id2">[GBC16]</a>, Pag. 113</p>
 </div>
 <div class="section" id="can-i-say-that-my-algorithm-is-the-best">
 <h2>Can I say that my algorithm is the best?<a class="headerlink" href="#can-i-say-that-my-algorithm-is-the-best" title="Permalink to this headline">¶</a></h2>
 <p>“In machine learning experiments, it is common to say that algorithm A is better than algorithm B if the upper bound of the 95 percent of the condifence interval for the error of the algorithm A is less than the lower bound of the of the 95 percent of the condifence interval for the error of the algorithm B.”
-From <a class="bibtex reference internal" href="008_sklearn-pipeline-example.html#goodfellow-deep-2016" id="id3">[GBC16]</a>, Pag. 125</p>
+From <a class="bibtex reference internal" href="#goodfellow-deep-2016" id="id3">[GBC16]</a>, Pag. 125</p>
 <p>TODO</p>
 <p>Add plot with an example to understand the statement visually.</p>
 <p>so how I can estimate the out of sample error and the confidence intervals (the dot and the bars)?</p>
@@ -439,7 +439,7 @@ We can follow the <strong>one-standard-error rule</strong>:</p>
 </div></blockquote>
 <blockquote>
 <div><p>…”One problem is that no unbiased estimators of the variance of such average error estimator exist <a class="bibtex reference internal" href="#bengio-unbiased-2004" id="id6">[BG04]</a>, but approximations are typically used.”</p>
-<p>From <a class="bibtex reference internal" href="008_sklearn-pipeline-example.html#goodfellow-deep-2016" id="id7">[GBC16]</a> Pag. 119</p>
+<p>From <a class="bibtex reference internal" href="#goodfellow-deep-2016" id="id7">[GBC16]</a> Pag. 119</p>
 </div></blockquote>
 </div>
 <div class="section" id="discussions">

@@ -375,8 +375,8 @@ Vamos a mostrar que las componentes principales de <span class="math notranslate
 <p>Empezamos definiendo, las siguientes matrices:</p>
 <p><span class="math notranslate nohighlight">\(n\)</span> es el número de samples,
 <span class="math notranslate nohighlight">\(\bar{X}\)</span> es la matriz de <span class="math notranslate nohighlight">\(n\)</span> filas, dónde cada fila tenemos el vector promedio de las samples.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e748a7b5-921b-4cc1-bd55-c7bf70bd2d23">
-<span class="eqno">(7)<a class="headerlink" href="#equation-e748a7b5-921b-4cc1-bd55-c7bf70bd2d23" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-25da8cb8-a89f-4e44-b4c4-e57d75d15950">
+<span class="eqno">(7)<a class="headerlink" href="#equation-25da8cb8-a89f-4e44-b4c4-e57d75d15950" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 B := X - \bar{X} \\
 C := B^TB \\
 \end{equation}\]</div>
@@ -385,13 +385,13 @@ $<span class="math notranslate nohighlight">\(C V = \overbrace{V}^{\text{eigenve
 <p>Las componentes principales de <span class="math notranslate nohighlight">\(X\)</span>, están dadas por <span class="math notranslate nohighlight">\(T\)</span>:
 $<span class="math notranslate nohighlight">\( T = BV \)</span>$</p>
 <p>como la Singular Value Decomposition de <span class="math notranslate nohighlight">\(B\)</span> nos da</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9d0a47cd-9393-4d54-9832-4994bae1a9f9">
-<span class="eqno">(8)<a class="headerlink" href="#equation-9d0a47cd-9393-4d54-9832-4994bae1a9f9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-81e93340-5b94-4ec6-b5c3-9070fd045a5c">
+<span class="eqno">(8)<a class="headerlink" href="#equation-81e93340-5b94-4ec6-b5c3-9070fd045a5c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 B = U \Sigma V^T \\ 
 \end{equation}\]</div>
 <p>y como <span class="math notranslate nohighlight">\(V^TV=I\)</span>, podemos probar que <span class="math notranslate nohighlight">\(T\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-ac668726-869c-43d2-9f01-677bc0ea533d">
-<span class="eqno">(9)<a class="headerlink" href="#equation-ac668726-869c-43d2-9f01-677bc0ea533d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-250664eb-ccaf-4121-8927-27227dbb0bc6">
+<span class="eqno">(9)<a class="headerlink" href="#equation-250664eb-ccaf-4121-8927-27227dbb0bc6" title="Permalink to this equation">¶</a></span>\[\begin{align}
 T = B V &amp;= U \Sigma V^T V \\
 &amp;=  U \Sigma I \\
 &amp;= U \Sigma.

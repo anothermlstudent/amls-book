@@ -1,0 +1,699 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What I will learn if study this notebook? &#8212; amls</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "github-org/github-repo");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://anothermlstudent.github.io/amls-book/002_machine-learning-pipeline.html" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Bias-Variance trade-off (theory)" href="003_bias-vs-variance%28theory%29.html" />
+    <link rel="prev" title="Regression Dataset" href="001_dataset-regression.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://anothermlstudent.github.io/amls-book/002_machine-learning-pipeline.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="What I will learn if study this notebook?" />
+<meta property="og:description" content="What I will learn if study this notebook?  You will learn how ML experts suggest:  to report the performance of your models,  to select the hyperparameters of y" />
+<meta property="og:image"       content="https://anothermlstudent.github.io/amls-book/_static/logo-amls.png" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo-amls.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">amls</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to another machine learning student (note)book
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  ML Notes
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="001_dataset-regression.html">
+   Regression Dataset
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   What I will learn if study this notebook?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#how-good-is-this-algorithm">
+   How good is this algorithm?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#can-i-say-that-my-algorithm-is-the-best">
+   Can I say that my algorithm is the best?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#appendix">
+   Appendix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#references">
+   References
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="003_bias-vs-variance%28theory%29.html">
+   Bias-Variance trade-off (theory)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="005_bias-vs-variance%28practice%29.html">
+   Bias-Variance trade-off (practice, my notes)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="007_gaussian-processes.html">
+   Gaussian Processes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="800_computational-stability.html">
+   Poor Conditioning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="800_computational-stability.html#solution-use-cholesky-decomposition">
+   Solution. Use Cholesky decomposition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="800_computational-stability.html#solution-with-code">
+   Solution with Code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="800_computational-stability.html#examples-of-applications">
+   Examples of Applications
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="800_computational-stability.html#linear-least-squares">
+   Linear least squares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="800_computational-stability.html#in-gaussian-processes">
+   In Gaussian Processes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="995_kernel-demo.html">
+   Kernel Demo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="996_ploting-tools.html">
+   Different ploting tools
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="997_appendix.html">
+   Apprendix
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Receipes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="998_basic-widgets.html">
+   Basic widgets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="999_jupyterbook_cookbook.html">
+   Jupyter book - Recetas básicas
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/002_machine-learning-pipeline.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/anothermlstudent/amls-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/anothermlstudent/amls-book/issues/new?title=Issue%20on%20page%20%2F002_machine-learning-pipeline.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/anothermlstudent/amls-book/edit/main/amls/002_machine-learning-pipeline.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/anothermlstudent/amls-book/main?urlpath=tree/amls/002_machine-learning-pipeline.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/anothermlstudent/amls-book/blob/main/amls/002_machine-learning-pipeline.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   What I will learn if study this notebook?
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-good-is-this-algorithm">
+   How good is this algorithm?
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#can-i-say-that-my-algorithm-is-the-best">
+   Can I say that my algorithm is the best?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cross-validation">
+     Cross-validation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#discussions">
+     Discussions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#appendix">
+   Appendix
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-the-standard-error">
+     What is the Standard Error?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="what-i-will-learn-if-study-this-notebook">
+<h1>What I will learn if study this notebook?<a class="headerlink" href="#what-i-will-learn-if-study-this-notebook" title="Permalink to this headline">¶</a></h1>
+<p>You will learn how ML experts suggest:</p>
+<ul class="simple">
+<li><p>to report the performance of your models,</p></li>
+<li><p>to select the hyperparameters of your models.</p></li>
+</ul>
+<p>TL, DR</p>
+<ul class="simple">
+<li><p>It doesn’t make sense to quantify how good your algorithm is over all possible data-generating distributions, since <strong>no free lunch theorem</strong> proves that all algorithm have the same average performance, instead</p></li>
+<li><p>you want to quantify (measure) how good is your algorithm at a group of data-generating distributions related to a specific problem,</p></li>
+<li><p>in particular, you want to estimate how good the algorithm will be when it will process new data (data outside the one that was used for training)</p></li>
+<li><p>To estimate that <strong>out-of-sample performance</strong> of an algorithm you can use <strong>k-fold cross-validation</strong>.</p></li>
+<li><p>That out-of-sample performance, in practice, is reported along with a 95% <strong>confidence interval</strong> (you will need to estimate the score and the <strong>standard error</strong>).</p></li>
+<li><p>Since most of the times, algorithms have <strong>hyperparameters</strong> there is a question on how to select them:</p></li>
+<li><p>You can select the best hyperparameters by the <strong>one-standard-error rule</strong>.</p></li>
+<li><p>Another option is to integrate the hyperparameter selection into the algorithm itself by using <strong>cross-validation</strong>. To estimate the out-of-sample performance of that resulting algorithm you can use cross-validation, effectively getting what is known as <strong>nested cross-validation</strong>.</p></li>
+</ul>
+</div>
+<div class="section" id="how-good-is-this-algorithm">
+<h1>How good is this algorithm?<a class="headerlink" href="#how-good-is-this-algorithm" title="Permalink to this headline">¶</a></h1>
+<p>It doesn’t make sense to quantify how good your algorithm is over all possible data-generating distributions, since <strong>no free lunch theorem</strong> proves that all algorithm have the same average performance, instead you want to quantify (measure) how good is your algorithm at a group of data-generating distributions related to a specific problem, in particular, you want to estimate how good the algorithm will be when it will process new data (data outside the one that was used for training)</p>
+<p>“The <strong>no free lunch theorem</strong> for machine learning [6] states that, averaged over all possible data-generating distributions, every classification algorithm has the same error rate when classifying previously unobserved points” From [3], Pag. 113</p>
+</div>
+<div class="section" id="can-i-say-that-my-algorithm-is-the-best">
+<h1>Can I say that my algorithm is the best?<a class="headerlink" href="#can-i-say-that-my-algorithm-is-the-best" title="Permalink to this headline">¶</a></h1>
+<p>“In machine learning experiments, it is common to say that algorithm A is better than algorithm B if the upper bound of the 95 percent of the condifence interval for the error of the algorithm A is less than the lower bound of the of the 95 percent of the condifence interval for the error of the algorithm B.”
+From [3], Pag. 125</p>
+<p>TODO</p>
+<p>Add plot with an example to understand the statement visually.</p>
+<p>so how I can estimate the out of sample error and the confidence intervals (the dot and the bars)?</p>
+<p>We can use the following code:</p>
+<p>scores = cross_val_score(reg, X, y, cv=k,scoring=’neg_mean_squared_error’)
+print(“Accuracy: %0.2f (+/- %0.2f)” % (scores.mean(), scores.std() * 1.96))</p>
+<p>To understand the explanation we need two theoretical results regarding the statistic <span class="math notranslate nohighlight">\(\bar{X}\)</span>. Which is an unbiased estimator of the mean <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\hat{\mu}\)</span> score means
+<span class="math notranslate nohighlight">\(\hat{SE}\)</span></p>
+<p>95% Confidence Interval
+performance <span class="math notranslate nohighlight">\(\hat{\mu}\)</span> +/- 1.96 <span class="math notranslate nohighlight">\(\hat{SE}\)</span></p>
+<div class="section" id="cross-validation">
+<h2>Cross-validation<a class="headerlink" href="#cross-validation" title="Permalink to this headline">¶</a></h2>
+<p>“<strong>cross-validation</strong> can be used to estimate the test error associated with a given statistical learning method in order to evaluate its performance, or to select the appropriate level of flexibility. The process of evaluating a model’s performance is known as <strong>model assessment</strong>, whereas the process of selecting the proper level of flexibility for a model is known as <strong>model selection</strong>.” From [1], Pag. 175</p>
+<p>There are severla types of <strong>cross-validation</strong> procedures:</p>
+<ul class="simple">
+<li><p>k-fold cross-validation</p></li>
+<li><p>leave-one-out cross-validation</p></li>
+</ul>
+<p>Now that we have our cross-validation scores and the estimates of the standard errors, <strong>how should we select the best hyperparameter for our model?</strong>
+We can follow the <strong>one-standard-error rule</strong>:</p>
+<p><em>…”if we repeated cross-validation using a different set of cross-validation folds, then the precise model with the lowest estimated test error would surely change. In this setting, we can select a model using the one-standard-error rule. We first calculate the standard error of the estimated test MSE for each model size, and then select the smallest model for which the estimated test error is within one standard error of the lowest point on the curve.”</em> From [1] Pag. 214</p>
+<p><em>…”One problem is that no unbiased estimators of the variance of such average error estimator exist[5], but approximations are typically used.”</em> From [3] Pag. 119</p>
+</div>
+<div class="section" id="discussions">
+<h2>Discussions<a class="headerlink" href="#discussions" title="Permalink to this headline">¶</a></h2>
+<p>This topic can be consufing and tricky to implement.</p>
+<p>Little mistake, they say 95% confidence interval but they use 2 (which is ~95.45%) instead they should use 1.96 (for 95%)
+https://github.com/scikit-learn/scikit-learn/issues/1940</p>
+<p>In the first implementation, someone got confused and divide by the number of sample
+https://github.com/scikit-learn/scikit-learn/issues/6059
+https://github.com/scikit-learn/scikit-learn/pull/6072</p>
+</div>
+</div>
+<div class="section" id="appendix">
+<h1>Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-the-standard-error">
+<h2>What is the Standard Error?<a class="headerlink" href="#what-is-the-standard-error" title="Permalink to this headline">¶</a></h2>
+<p>The standard error is the square root of the variance of an estimator.</p>
+<p><span class="math notranslate nohighlight">\(SE = \sqrt {Var\, \hat{\theta}} \)</span></p>
+<p>For instance, in the case of <span class="math notranslate nohighlight">\(\hat{X}\)</span> the estimator of the mean <span class="math notranslate nohighlight">\(\mu\)</span>. The standard error <span class="math notranslate nohighlight">\(SE = \sqrt {Var \bar{X}} = \sqrt{ \frac{\sigma^2}{n}} = \frac{\sigma}{\sqrt{n}}\)</span>.</p>
+<p>From [7] Pag 213 Theorem 5.2.6</p>
+<p>Let <span class="math notranslate nohighlight">\(X_1,\ldots,X_n\)</span> be a random sample from a population with mean <span class="math notranslate nohighlight">\(\mu\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2&lt;\infty\)</span>. Then</p>
+<p>a. <span class="math notranslate nohighlight">\(\mathbb{E} \bar{X} = \mu\)</span></p>
+<p>b. <span class="math notranslate nohighlight">\(Var \bar{X} = \frac{\sigma^2}{n}\)</span></p>
+<p>c. <span class="math notranslate nohighlight">\(\mathbb{E} S^2 = \sigma^2\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(\bar{X}\)</span> is the sample mean <span class="math notranslate nohighlight">\(\bar{X} = \frac{1}{n}\sum_{i=1}^{n} X_i\)</span> and <span class="math notranslate nohighlight">\(S^2\)</span> is the sample variance <span class="math notranslate nohighlight">\(S^2 = \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar{X})^2\)</span></p>
+</div>
+</div>
+<div class="section" id="references">
+<h1>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h1>
+<p>[1] James, G., Witten, D., Hastie, T., &amp; Tibshirani, R. (2013). An introduction to statistical learning: With applications in R.</p>
+<p>[2] Hastie, T. (n.d.). The elements of statistical learning [electronic resource]: Data mining, inference, and prediction. Springer.</p>
+<p>[3] Goodfellow, I., Bengio, Y., &amp; Courville, A. (2016). Deep learning. Cambridge, Massachusetts: The MIT Press.</p>
+<p>[4] Geron, A. (2017). Hands-on Machine Learning with Scikit-Learn &amp; TensorFlow: Concepts, Tools, and Techniques to build Intelligent Systems.</p>
+<p>[5] <a class="reference external" href="https://www.jmlr.org/papers/volume5/grandvalet04a/grandvalet04a.pdf">No Unbiased Estimator of the Variance of K-Fold Cross-Validation</a></p>
+<p>[6] <a class="reference external" href="https://ti.arc.nasa.gov/m/profile/dhw/papers/78.pdf">No free lunch theorems for optimization</a></p>
+<p>[7] Casella, G., &amp; Berger, R. L. (2002). Statistical inference. Australia: Thomson Learning.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">linear_model</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+
+<span class="n">diabetes</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_diabetes</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">diabetes</span><span class="o">.</span><span class="n">data</span><span class="p">[:</span><span class="mi">16</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">diabetes</span><span class="o">.</span><span class="n">target</span><span class="p">[:</span><span class="mi">16</span><span class="p">]</span>
+<span class="n">reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">k</span><span class="p">,</span><span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">)</span>
+<span class="n">scores</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ -22862.90680958,  -36520.18051482, -124486.1325756 ,
+         -2205.68974692])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">inds</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+<span class="n">fold_length</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">inds</span><span class="p">)</span><span class="o">/</span><span class="n">k</span><span class="p">)</span>
+
+<span class="n">scores</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">inds</span><span class="p">),</span><span class="n">fold_length</span><span class="p">):</span>
+  <span class="n">train_inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">inds</span><span class="p">,</span> <span class="n">inds</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">fold_length</span><span class="p">])</span>
+  <span class="n">test_inds</span> <span class="o">=</span> <span class="n">inds</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">fold_length</span><span class="p">]</span>
+
+  <span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">train_inds</span><span class="p">],</span><span class="n">y</span><span class="p">[</span><span class="n">train_inds</span><span class="p">])</span>
+
+  <span class="n">y_pred</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">test_inds</span><span class="p">])</span>
+  <span class="n">y_true</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">test_inds</span><span class="p">]</span>
+
+  <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+
+<span class="n">scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+<span class="n">scores</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ -22862.90680958,  -36520.18051482, -124486.1325756 ,
+         -2205.68974692])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">linear_model</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+
+<span class="n">diabetes</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_diabetes</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">diabetes</span><span class="o">.</span><span class="n">data</span><span class="p">[:</span><span class="mi">16</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">diabetes</span><span class="o">.</span><span class="n">target</span><span class="p">[:</span><span class="mi">16</span><span class="p">]</span>
+<span class="n">reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+<span class="n">scores</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ -9.5593196 , -37.69944289, -12.77935441,  -2.11896031])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">16</span><span class="o">/</span><span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">inds</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+<span class="n">fold_length</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">inds</span><span class="p">)</span><span class="o">/</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
+
+<span class="n">scores</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">inds</span><span class="p">),</span><span class="n">fold_length</span><span class="p">):</span>
+  <span class="n">train_inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">inds</span><span class="p">,</span> <span class="n">inds</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">fold_length</span><span class="p">])</span>
+  <span class="n">test_inds</span> <span class="o">=</span> <span class="n">inds</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">fold_length</span><span class="p">]</span>
+
+  <span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">train_inds</span><span class="p">],</span><span class="n">y</span><span class="p">[</span><span class="n">train_inds</span><span class="p">])</span>
+
+  <span class="n">y_pred</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">test_inds</span><span class="p">])</span>
+  <span class="n">y_true</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">test_inds</span><span class="p">]</span>
+
+  <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+
+<span class="n">scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+<span class="n">scores</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ -9.5593196 , -37.69944289, -12.77935441,  -2.11896031])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="001_dataset-regression.html" title="previous page">Regression Dataset</a>
+    <a class='right-next' id="next-link" href="003_bias-vs-variance%28theory%29.html" title="next page">Bias-Variance trade-off (theory)</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By AnotherMLStudent<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'G-ZJ79CQ4Z6Z', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

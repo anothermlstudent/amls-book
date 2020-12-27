@@ -354,6 +354,11 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-test-dataset">
+   The test dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#true-f-for-future-reference">
    True
    <span class="math notranslate nohighlight">
@@ -363,18 +368,13 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-test-dataset">
-   The test dataset
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#save-the-datasets">
    Save the datasets
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ploting-the-datasets">
-   Ploting the datasets
+  <a class="reference internal nav-link" href="#plot-one-training-dataset">
+   Plot one training dataset
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -395,7 +395,7 @@ commentsRunWhenDOMLoaded(addUtterances);
                 
   <div class="section" id="regression-dataset">
 <h1>Regression Dataset<a class="headerlink" href="#regression-dataset" title="Permalink to this headline">¶</a></h1>
-<p>En la práctica, nunca vamos a conocer el verdadero proceso que genera los datos (si lo conocieramos, no necesitaríamos utilizar técnicas de machine learning). El valor de simular ese proceso, es que nos va permitir conocer exactamente su distribución y eso nos va ayudar a entender que tan buenas son nuestras estimaciones y mejorar nuestra intuición sobre los distintos conceptos y métodos</p>
+<p>En la práctica, nunca vamos a conocer el verdadero proceso que genera los datos (si lo conocieramos, no necesitaríamos utilizar técnicas de machine learning). El valor de simular ese proceso, es que nos va permitir conocer exactamente su distribución y eso nos va ayudar a entender que tan buenas son nuestras estimaciones y mejorar nuestra intuición sobre los distintos conceptos y métodos.</p>
 <div class="section" id="the-synthetic-dataset">
 <h2>The (synthetic) dataset<a class="headerlink" href="#the-synthetic-dataset" title="Permalink to this headline">¶</a></h2>
 <p>En vez de jugar con datos reales, vamos a crear nuestros datos ya que conocer exactamente como fueron creados nos va ayudar a experimentar con los conceptos que queremos aprender.</p>
@@ -435,19 +435,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">interact_manual</span>
-<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
-
-<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
-<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
-
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
-
-<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
 <span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">default_rng</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -459,7 +449,6 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create d datasets of n samples each</span>
-<span class="c1"># X </span>
 <span class="n">d</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># number of datasets to create</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># samples per dataset</span>
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="mi">10</span> <span class="c1"># x domain range (a,b)</span>
@@ -509,28 +498,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#x_datasets, y_datasets_w_noise = generate_datasets(d,n,f,a,b,var)</span>
-<span class="n">X_trains</span><span class="p">,</span> <span class="n">y_trains</span> <span class="o">=</span> <span class="n">generate_datasets</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">var</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d_test</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">n_test</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">X_tests</span><span class="p">,</span> <span class="n">y_tests</span> <span class="o">=</span> <span class="n">generate_datasets</span><span class="p">(</span><span class="n">d_test</span><span class="p">,</span><span class="n">n_test</span><span class="p">,</span><span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">,</span><span class="n">var</span><span class="o">=</span><span class="n">var</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="true-f-for-future-reference">
-<h2>True <span class="math notranslate nohighlight">\(f\)</span> (for future reference)<a class="headerlink" href="#true-f-for-future-reference" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">true_f_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">true_f_y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">true_f_x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_trains</span><span class="p">,</span> <span class="n">y_trains</span> <span class="o">=</span> <span class="n">generate_datasets</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">var</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -543,8 +511,18 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d_test</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">n_test</span> <span class="o">=</span> <span class="mi">20</span>
 
-<span class="c1">#x_test, y_test_w_noise = generate_datasets(d_test,n_test,f=f,a=a,b=b,var=var)</span>
 <span class="n">X_tests</span><span class="p">,</span> <span class="n">y_tests</span> <span class="o">=</span> <span class="n">generate_datasets</span><span class="p">(</span><span class="n">d_test</span><span class="p">,</span><span class="n">n_test</span><span class="p">,</span><span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">,</span><span class="n">var</span><span class="o">=</span><span class="n">var</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="true-f-for-future-reference">
+<h2>True <span class="math notranslate nohighlight">\(f\)</span> (for future reference)<a class="headerlink" href="#true-f-for-future-reference" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">true_f_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">true_f_y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">true_f_x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -578,39 +556,41 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-<div class="section" id="ploting-the-datasets">
-<h2>Ploting the datasets<a class="headerlink" href="#ploting-the-datasets" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="plot-one-training-dataset">
+<h2>Plot one training dataset<a class="headerlink" href="#plot-one-training-dataset" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f_plotly</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span><span class="n">x_datasets</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span><span class="n">y_datasets_w_noise</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span><span class="n">true_f_x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span><span class="n">true_f_y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_f</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span><span class="n">x_datasets</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span><span class="n">y_datasets_w_noise</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span><span class="n">true_f_x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span><span class="n">true_f_y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Plot the function and the data coming from it for specific dataset i in x_datasets (using plotly).</span>
+<span class="sd">    Plot the function and the data coming from it for specific dataset i in x_datasets.</span>
 <span class="sd">    i: index to indicate which dataset to plot from x_datasets.</span>
 <span class="sd">    x_datasets: input features of the d datatsets.</span>
 <span class="sd">    y_datasets_w_noise: targets of the d datasets.</span>
 <span class="sd">    true_f_x: x coordinates of the points from the true function.</span>
 <span class="sd">    true_f_y: y cordinates of the points from the true function.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span>
-        <span class="n">layout</span><span class="o">=</span><span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span>
-          <span class="n">title</span><span class="o">=</span><span class="n">go</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">Title</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Samples and True Function. Dataset </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">),</span>
-          <span class="n">xaxis_range</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span>
-          <span class="n">yaxis_range</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span>
-          <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
-          <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
-          <span class="p">))</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_datasets</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span><span class="n">y</span><span class="o">=</span><span class="n">y_datasets_w_noise</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;samples&#39;</span><span class="p">))</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">true_f_x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">true_f_y</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;true function&#39;</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">fig</span>
+    <span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">18</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+    <span class="nb">ord</span> <span class="o">=</span> <span class="n">x_datasets</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">.</span><span class="n">argsort</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">true_f_x</span><span class="p">,</span><span class="n">true_f_y</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_datasets</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span><span class="n">y_datasets_w_noise</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ax</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#interact(lambda i : f_plotly(i,X_trains,y_trains,true_f_x,true_f_y), i=widgets.IntSlider(min=0, max=d-1, step=1, value=0));</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_f</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">x_datasets</span><span class="o">=</span><span class="n">X_trains</span><span class="p">,</span> <span class="n">y_datasets_w_noise</span><span class="o">=</span><span class="n">y_trains</span><span class="p">,</span> <span class="n">true_f_x</span><span class="o">=</span><span class="n">true_f_x</span> <span class="p">,</span><span class="n">true_f_y</span><span class="o">=</span><span class="n">true_f_y</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/001_dataset-regression_23_1.png" src="_images/001_dataset-regression_23_1.png" />
 </div>
 </div>
 </div>

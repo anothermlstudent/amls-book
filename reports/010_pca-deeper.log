@@ -17,14 +17,27 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-th
+
+# Test that
+u, s, vh = np.linalg.svd(b, full_matrices=True)
+
+# Uno tiene que darme u el otro tiene que darme v
+# PCA es factorizar X@X_T en v W^2 v_T.  
+# Esto es numericamente inestable y por eso no aplicamos PCA.
+w, v = np.linalg.eig(X_T@X)
+
+w, v = np.linalg.eig(X@X_T)
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-2-fc42ba619356>[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0mth[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;31mNameError[0m: name 'th' is not defined
-NameError: name 'th' is not defined
+[0;32m<ipython-input-2-2dd45df9c886>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# Test that[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mu[0m[0;34m,[0m [0ms[0m[0;34m,[0m [0mvh[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mlinalg[0m[0;34m.[0m[0msvd[0m[0;34m([0m[0mb[0m[0;34m,[0m [0mfull_matrices[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0;31m# Uno tiene que darme u el otro tiene que darme v[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;31m# PCA es factorizar X@X_T en v W^2 v_T.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'np' is not defined
+NameError: name 'np' is not defined
 

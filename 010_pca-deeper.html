@@ -184,16 +184,6 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="#covarianza">
-   Covarianza
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#references">
-   References
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="011_statistical-decision-theory.html">
    Statistical Decision Theory
   </a>
@@ -345,24 +335,17 @@ commentsRunWhenDOMLoaded(addUtterances);
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   PCA one level deeper
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scale-or-not-to-scale">
+   Scale or not to scale
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#scale-or-not-to-scale">
-     Scale or not to scale
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#covarianza">
    Covarianza
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
    References
   </a>
@@ -397,8 +380,8 @@ Vamos a mostrar que las componentes principales de <span class="math notranslate
 <p>Empezamos definiendo, las siguientes matrices:</p>
 <p><span class="math notranslate nohighlight">\(n\)</span> es el número de samples,
 <span class="math notranslate nohighlight">\(\bar{X}\)</span> es la matriz de <span class="math notranslate nohighlight">\(n\)</span> filas, dónde cada fila tenemos el vector promedio de las samples.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2a1e50e8-0955-45f6-be83-ae0d686012d5">
-<span class="eqno">(7)<a class="headerlink" href="#equation-2a1e50e8-0955-45f6-be83-ae0d686012d5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ad3fa7d9-eee1-4dc7-b721-2ec050fdca53">
+<span class="eqno">(7)<a class="headerlink" href="#equation-ad3fa7d9-eee1-4dc7-b721-2ec050fdca53" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 B := X - \bar{X} \\
 C := B^TB \\
 \end{equation}\]</div>
@@ -407,13 +390,13 @@ $<span class="math notranslate nohighlight">\(C V = \overbrace{V}^{\text{eigenve
 <p>Las componentes principales de <span class="math notranslate nohighlight">\(X\)</span>, están dadas por <span class="math notranslate nohighlight">\(T\)</span>:
 $<span class="math notranslate nohighlight">\( T = BV \)</span>$</p>
 <p>como la Singular Value Decomposition de <span class="math notranslate nohighlight">\(B\)</span> nos da</p>
-<div class="amsmath math notranslate nohighlight" id="equation-670c2cf1-4a5b-454e-a5b6-aa20ff785b02">
-<span class="eqno">(8)<a class="headerlink" href="#equation-670c2cf1-4a5b-454e-a5b6-aa20ff785b02" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4df6b642-be06-4c86-bf13-d39a759c376d">
+<span class="eqno">(8)<a class="headerlink" href="#equation-4df6b642-be06-4c86-bf13-d39a759c376d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 B = U \Sigma V^T \\ 
 \end{equation}\]</div>
 <p>y como <span class="math notranslate nohighlight">\(V^TV=I\)</span>, podemos probar que <span class="math notranslate nohighlight">\(T\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-597b725e-2baa-4826-93ae-29c7537964c9">
-<span class="eqno">(9)<a class="headerlink" href="#equation-597b725e-2baa-4826-93ae-29c7537964c9" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f10cc3a9-adae-42d7-a2cc-5b0c9738a0cd">
+<span class="eqno">(9)<a class="headerlink" href="#equation-f10cc3a9-adae-42d7-a2cc-5b0c9738a0cd" title="Permalink to this equation">¶</a></span>\[\begin{align}
 T = B V &amp;= U \Sigma V^T V \\
 &amp;=  U \Sigma I \\
 &amp;= U \Sigma.
@@ -421,32 +404,14 @@ T = B V &amp;= U \Sigma V^T V \\
 <p># ¿Qué es C?</p>
 <p>Cómo <span class="math notranslate nohighlight">\(X\)</span> está ordenada samples,features, <span class="math notranslate nohighlight">\(C\)</span> me da la matriz de covarianzas entre mis features.</p>
 <p>Pero si hubiera ordenado <span class="math notranslate nohighlight">\(X\)</span> de manera de tener features,samples, <span class="math notranslate nohighlight">\(C\)</span> sería la matriz de covarianzas entre mis samples.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">th</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">fc42ba619356</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">th</span>
-
-<span class="ne">NameError</span>: name &#39;th&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
 <div class="section" id="scale-or-not-to-scale">
 <h2>Scale or not to scale<a class="headerlink" href="#scale-or-not-to-scale" title="Permalink to this headline">¶</a></h2>
 <p>https://stats.stackexchange.com/questions/53/pca-on-correlation-or-covariance</p>
 <p>https://scikit-learn.org/stable/auto_examples/preprocessing/plot_scaling_importance.html</p>
 <p># Appendix</p>
 </div>
-</div>
 <div class="section" id="covarianza">
-<h1>Covarianza<a class="headerlink" href="#covarianza" title="Permalink to this headline">¶</a></h1>
+<h2>Covarianza<a class="headerlink" href="#covarianza" title="Permalink to this headline">¶</a></h2>
 <p><span class="math notranslate nohighlight">\(covar(X,Y) = \mathbb{E}[(X-\bar{x})(Y-\bar{y})]\)</span></p>
 <p>Si tengo <span class="math notranslate nohighlight">\(N\)</span> samples puedo estimar la covarianza:</p>
 <p><span class="math notranslate nohighlight">\(\hat{covar}(X,Y) = \frac{1}{N} (\mathbb{x}-\mathbb{1} \bar{x})^T(\mathbb{y}- \mathbb{1}\bar{y})=\frac{1}{N-1} \sum_{i=1}^{N}(x_i-\bar{x})(y_i-\bar{y})\)</span>,</p>
@@ -464,6 +429,20 @@ https://www.youtube.com/watch?v=g-Hb26agBFg</p>
 <span class="n">w</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">X_T</span><span class="nd">@X</span><span class="p">)</span>
 
 <span class="n">w</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">X</span><span class="nd">@X_T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">2</span><span class="n">dd45df9c886</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Test that</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">vh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">full_matrices</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Uno tiene que darme u el otro tiene que darme v</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># PCA es factorizar X@X_T en v W^2 v_T.</span>
+
+<span class="ne">NameError</span>: name &#39;np&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -545,7 +524,7 @@ dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7ff748023668&gt;
 </pre></div>
 </div>
-<img alt="_images/010_pca-deeper_15_1.png" src="_images/010_pca-deeper_15_1.png" />
+<img alt="_images/010_pca-deeper_14_1.png" src="_images/010_pca-deeper_14_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -572,17 +551,18 @@ dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7ff74589c128&gt;
 </pre></div>
 </div>
-<img alt="_images/010_pca-deeper_17_1.png" src="_images/010_pca-deeper_17_1.png" />
+<img alt="_images/010_pca-deeper_16_1.png" src="_images/010_pca-deeper_16_1.png" />
 </div>
 </div>
 </div>
 <div class="section" id="references">
-<h1>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h1>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <p>https://www.youtube.com/watch?v=nbBvuuNVfco</p>
 <p>https://www.youtube.com/watch?v=xy3QyyhiuY4</p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=WmDnaoY2Ivs">Singular Value Decomposition (SVD): Dominant Correlations</a></p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=fkf4IBRSeEc">Principal Component Analysis (PCA)</a></p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=PFDu9oVAE-g">Eigenvalues and Eigenvectors</a></p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

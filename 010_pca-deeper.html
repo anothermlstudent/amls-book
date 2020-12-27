@@ -222,7 +222,7 @@ commentsRunWhenDOMLoaded(addUtterances);
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="999_jupyterbook_cookbook.html">
-   Jupyter book - Recetas básicas
+   Jupyter book
   </a>
  </li>
 </ul>
@@ -341,11 +341,6 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#covarianza">
-   Covarianza
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
    References
   </a>
@@ -380,8 +375,8 @@ Vamos a mostrar que las componentes principales de <span class="math notranslate
 <p>Empezamos definiendo, las siguientes matrices:</p>
 <p><span class="math notranslate nohighlight">\(n\)</span> es el número de samples,
 <span class="math notranslate nohighlight">\(\bar{X}\)</span> es la matriz de <span class="math notranslate nohighlight">\(n\)</span> filas, dónde cada fila tenemos el vector promedio de las samples.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c82849c5-c029-4b6e-a473-862ddacb00a9">
-<span class="eqno">(7)<a class="headerlink" href="#equation-c82849c5-c029-4b6e-a473-862ddacb00a9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-42e1a689-5886-4934-bed7-c817648c4c16">
+<span class="eqno">(7)<a class="headerlink" href="#equation-42e1a689-5886-4934-bed7-c817648c4c16" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 B := X - \bar{X} \\
 C := B^TB \\
 \end{equation}\]</div>
@@ -390,13 +385,13 @@ $<span class="math notranslate nohighlight">\(C V = \overbrace{V}^{\text{eigenve
 <p>Las componentes principales de <span class="math notranslate nohighlight">\(X\)</span>, están dadas por <span class="math notranslate nohighlight">\(T\)</span>:
 $<span class="math notranslate nohighlight">\( T = BV \)</span>$</p>
 <p>como la Singular Value Decomposition de <span class="math notranslate nohighlight">\(B\)</span> nos da</p>
-<div class="amsmath math notranslate nohighlight" id="equation-481f13fd-0392-4b70-8580-4417380b6fb7">
-<span class="eqno">(8)<a class="headerlink" href="#equation-481f13fd-0392-4b70-8580-4417380b6fb7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f27f54b9-560b-49df-a806-b07ccbca0cf4">
+<span class="eqno">(8)<a class="headerlink" href="#equation-f27f54b9-560b-49df-a806-b07ccbca0cf4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 B = U \Sigma V^T \\ 
 \end{equation}\]</div>
 <p>y como <span class="math notranslate nohighlight">\(V^TV=I\)</span>, podemos probar que <span class="math notranslate nohighlight">\(T\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-7efec35b-50e7-4710-8657-c7df89856a14">
-<span class="eqno">(9)<a class="headerlink" href="#equation-7efec35b-50e7-4710-8657-c7df89856a14" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c450bb24-6749-4a74-b8ea-44b69804e868">
+<span class="eqno">(9)<a class="headerlink" href="#equation-c450bb24-6749-4a74-b8ea-44b69804e868" title="Permalink to this equation">¶</a></span>\[\begin{align}
 T = B V &amp;= U \Sigma V^T V \\
 &amp;=  U \Sigma I \\
 &amp;= U \Sigma.
@@ -408,16 +403,6 @@ T = B V &amp;= U \Sigma V^T V \\
 <h2>Scale or not to scale<a class="headerlink" href="#scale-or-not-to-scale" title="Permalink to this headline">¶</a></h2>
 <p>https://stats.stackexchange.com/questions/53/pca-on-correlation-or-covariance</p>
 <p>https://scikit-learn.org/stable/auto_examples/preprocessing/plot_scaling_importance.html</p>
-<p># Appendix</p>
-</div>
-<div class="section" id="covarianza">
-<h2>Covarianza<a class="headerlink" href="#covarianza" title="Permalink to this headline">¶</a></h2>
-<p><span class="math notranslate nohighlight">\(covar(X,Y) = \mathbb{E}[(X-\bar{x})(Y-\bar{y})]\)</span></p>
-<p>Si tengo <span class="math notranslate nohighlight">\(N\)</span> samples puedo estimar la covarianza:</p>
-<p><span class="math notranslate nohighlight">\(\hat{covar}(X,Y) = \frac{1}{N} (\mathbb{x}-\mathbb{1} \bar{x})^T(\mathbb{y}- \mathbb{1}\bar{y})=\frac{1}{N-1} \sum_{i=1}^{N}(x_i-\bar{x})(y_i-\bar{y})\)</span>,</p>
-<p>dónde <span class="math notranslate nohighlight">\(\bar{x} = \frac{1}{N-1} \sum_{x=1}^{N}x_i\)</span></p>
-<p>## Matrix as a Linear transformation
-https://www.youtube.com/watch?v=g-Hb26agBFg</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test that</span>
@@ -524,7 +509,7 @@ dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7ff748023668&gt;
 </pre></div>
 </div>
-<img alt="_images/010_pca-deeper_14_1.png" src="_images/010_pca-deeper_14_1.png" />
+<img alt="_images/010_pca-deeper_11_1.png" src="_images/010_pca-deeper_11_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -551,7 +536,7 @@ dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7ff74589c128&gt;
 </pre></div>
 </div>
-<img alt="_images/010_pca-deeper_16_1.png" src="_images/010_pca-deeper_16_1.png" />
+<img alt="_images/010_pca-deeper_13_1.png" src="_images/010_pca-deeper_13_1.png" />
 </div>
 </div>
 </div>

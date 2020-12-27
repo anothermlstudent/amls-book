@@ -8,6 +8,7 @@
   - file: 003_bias-vs-variance(theory)
   - file: 005_bias-vs-variance(practice)
   - file: 007_gaussian-processes
+  - file: 008_sklearn-pipeline-example
   - file: 800_computational-stability
   - file: 995_kernel-demo
   - file: 996_ploting-tools

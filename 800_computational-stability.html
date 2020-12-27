@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Poor Conditioning &#8212; amls</title>
+    <title>Solution. Use Cholesky decomposition &#8212; amls</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -105,8 +105,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <!-- Opengraph tags -->
 <meta property="og:url"         content="https://anothermlstudent.github.io/amls-book/800_computational-stability.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Poor Conditioning" />
-<meta property="og:description" content="Poor Conditioning  Deep Learning Book Pag 79  Consider the function f(\mathbf{x}) = \mathbf{A}^{-1}\mathbf{x}. When \mathbf{A} \in \mathbb{R}^{n \times n} has a" />
+<meta property="og:title"       content="Solution. Use Cholesky decomposition" />
+<meta property="og:description" content="Solution. Use Cholesky decomposition  From wikipedia  The Cholesky decomposition is mainly used for the numerical solution of linear equations  \mathbf {Ax} =\m" />
 <meta property="og:image"       content="https://anothermlstudent.github.io/amls-book/_static/logo-amls.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -195,11 +195,6 @@ commentsRunWhenDOMLoaded(addUtterances);
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Poor Conditioning
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#solution-use-cholesky-decomposition">
    Solution. Use Cholesky decomposition
   </a>
  </li>
@@ -367,11 +362,6 @@ commentsRunWhenDOMLoaded(addUtterances);
             <ul class="nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Poor Conditioning
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solution-use-cholesky-decomposition">
    Solution. Use Cholesky decomposition
   </a>
  </li>
@@ -406,13 +396,17 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <div class="section" id="poor-conditioning">
-<h1>Poor Conditioning<a class="headerlink" href="#poor-conditioning" title="Permalink to this headline">¶</a></h1>
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Poor Conditioning</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Deep Learning Book Pag 79</p>
 <p>Consider the function <span class="math notranslate nohighlight">\(f(\mathbf{x}) = \mathbf{A}^{-1}\mathbf{x}\)</span>. When <span class="math notranslate nohighlight">\(\mathbf{A} \in \mathbb{R}^{n \times n}\)</span> has an eigenvalue decomposition, its <strong>condition number</strong> is
 $<span class="math notranslate nohighlight">\( \max_{i,j} \Big|\frac{\lambda_i}{\lambda_j}\Big|.\)</span>$</p>
 <p>When this number is large, matrix inversion is particularly sensitive to error in the input.</p>
-</div>
 <div class="section" id="solution-use-cholesky-decomposition">
 <h1>Solution. Use Cholesky decomposition<a class="headerlink" href="#solution-use-cholesky-decomposition" title="Permalink to this headline">¶</a></h1>
 <p>From wikipedia</p>
@@ -420,20 +414,17 @@ $<span class="math notranslate nohighlight">\( \max_{i,j} \Big|\frac{\lambda_i}{
 </div>
 <div class="section" id="solution-with-code">
 <h1>Solution with Code<a class="headerlink" href="#solution-with-code" title="Permalink to this headline">¶</a></h1>
-<p>I don’t know what method use the scipy solver but it allows to assume that a is positive definite</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K21invK11</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">K11</span><span class="p">,</span> <span class="n">K12</span><span class="p">,</span> <span class="n">assume_a</span><span class="o">=</span><span class="s1">&#39;pos&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.linalg</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">e72e688b68ea</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">K21invK11</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">K11</span><span class="p">,</span> <span class="n">K12</span><span class="p">,</span> <span class="n">assume_a</span><span class="o">=</span><span class="s1">&#39;pos&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
-
-<span class="ne">NameError</span>: name &#39;scipy&#39; is not defined
+</div>
+<p>I don’t know what method use the scipy solver but it allows to assume that a is positive definite</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#K21invK11 = scipy.linalg.solve(K11, K12, assume_a=&#39;pos&#39;).T</span>
 </pre></div>
 </div>
 </div>

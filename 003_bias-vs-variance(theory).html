@@ -353,46 +353,35 @@ commentsRunWhenDOMLoaded(addUtterances);
                 
   <div class="section" id="bias-variance-trade-off-theory">
 <h1>Bias-Variance trade-off (theory)<a class="headerlink" href="#bias-variance-trade-off-theory" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>As usual, we are given a dataset <span class="math notranslate nohighlight">\(D=\{(x_1,y_1),\ldots,(x_n,y_n)\}\)</span>, drawn i.i.d. from some distribution <span class="math notranslate nohighlight">\(P(X,Y)\)</span>. Throughout this lecture we assume a regression setting, i.e. <span class="math notranslate nohighlight">\(y \in \mathbb{R}\)</span>. In this lecture we will decompose the generalization error of a classifier into three rather interpretable terms. Before we do that, let us consider that for any given input <span class="math notranslate nohighlight">\(\mathbb{x}\)</span> there might not exist a unique label <span class="math notranslate nohighlight">\(y\)</span>. For example, if your vector <span class="math notranslate nohighlight">\(\mathbb{x}\)</span> describes features of house (e.g. #bedrooms, square footage, …) and the label <span class="math notranslate nohighlight">\(y\)</span> its price, you could imagine two houses with identical description selling for different prices. So for any given feature vector <span class="math notranslate nohighlight">\(\mathbb{x}\)</span>, there is a distribution over possible labels. We therefore define the following, which will come in useful later on:</p>
+<p>As usual, we are given a dataset <span class="math notranslate nohighlight">\(D=\{(x_1,y_1),\ldots,(x_n,y_n)\}\)</span>, drawn i.i.d. from some distribution <span class="math notranslate nohighlight">\(P(X,Y)\)</span>. Throughout this lecture we assume a regression setting, i.e. <span class="math notranslate nohighlight">\(y \in \mathbb{R}\)</span>. In this lecture we will decompose the generalization error of a classifier into three rather interpretable terms. Before we do that, let us consider that for any given input <span class="math notranslate nohighlight">\(\mathbb{x}\)</span> there might not exist a unique label <span class="math notranslate nohighlight">\(y\)</span>. For example, if your vector <span class="math notranslate nohighlight">\(\mathbb{x}\)</span> describes features of house (e.g. #bedrooms, square footage, …) and the label <span class="math notranslate nohighlight">\(y\)</span> its price, you could imagine two houses with identical description selling for different prices. So for any given feature vector <span class="math notranslate nohighlight">\(\mathbb{x}\)</span>, there is a distribution over possible labels. We therefore define the following, which will come in useful later on:</p>
 <p><strong>Expected Label (given <span class="math notranslate nohighlight">\(\mathbb{x} \in \mathbb{R}^d\)</span>):</strong></p>
 <div class="math notranslate nohighlight">
 \[\bar{y}(\mathbb{x}) = \mathbb{E}_{y|x}[Y] = \int_{y} y\,\text{Pr}(y|\mathbb{x}) \partial y.\]</div>
 <p>The expected label denotes the label you would expect to obtain, given a feature vector <span class="math notranslate nohighlight">\(\mathbb{x}\)</span>.</p>
-</div></blockquote>
-<blockquote>
-<div><p>Alright, so we draw our training set <span class="math notranslate nohighlight">\(D\)</span>, consisting of <span class="math notranslate nohighlight">\(n\)</span> inputs, i.i.d. from the distribution <span class="math notranslate nohighlight">\(P\)</span>. As a second step we typically call some machine learning algorithm <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> on this data set to learn a hypothesis (aka classifier). Formally, we denote this process as <span class="math notranslate nohighlight">\(h_D=\mathcal{A}(D)\)</span>.</p>
+<p>Alright, so we draw our training set <span class="math notranslate nohighlight">\(D\)</span>, consisting of <span class="math notranslate nohighlight">\(n\)</span> inputs, i.i.d. from the distribution <span class="math notranslate nohighlight">\(P\)</span>. As a second step we typically call some machine learning algorithm <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> on this data set to learn a hypothesis (aka classifier). Formally, we denote this process as <span class="math notranslate nohighlight">\(h_D=\mathcal{A}(D)\)</span>.</p>
 <p>For a given <span class="math notranslate nohighlight">\(h_D\)</span>, learned on data set <span class="math notranslate nohighlight">\(D\)</span> with algorithm <span class="math notranslate nohighlight">\(\mathcal{A}\)</span>, we can compute the generalization error (as measured in squared loss) as follows:</p>
 <p><strong>Expected Test Error (given <span class="math notranslate nohighlight">\(h_D\)</span>)</strong>:</p>
 <div class="math notranslate nohighlight">
 \[\mathbb{E}_{(\mathbb{x},y)∼P} \Big[{(h_D(\mathbb{x})−y)}^{2}\Big]=\int_{x}\int_{y}{(h_D(\mathbb{x})−y)}^{2} \,\text{Pr}(\mathbb{x},y)\partial y \partial \mathbb{x}.\]</div>
 <p>Note that one can use other loss functions. We use squared loss because it has nice mathematical properties, and it is also the most common loss function.</p>
-</div></blockquote>
-<blockquote>
-<div><p>The previous statement is true for a given training set <span class="math notranslate nohighlight">\(D\)</span>. However, remember that <span class="math notranslate nohighlight">\(D\)</span> itself is drawn from <span class="math notranslate nohighlight">\(P^n\)</span>, and is therefore a random variable. Further, <span class="math notranslate nohighlight">\(h_D\)</span> is a function of <span class="math notranslate nohighlight">\(D\)</span>, and is therefore also a random variable. And we can of course compute its expectation:</p>
+<p>The previous statement is true for a given training set <span class="math notranslate nohighlight">\(D\)</span>. However, remember that <span class="math notranslate nohighlight">\(D\)</span> itself is drawn from <span class="math notranslate nohighlight">\(P^n\)</span>, and is therefore a random variable. Further, <span class="math notranslate nohighlight">\(h_D\)</span> is a function of <span class="math notranslate nohighlight">\(D\)</span>, and is therefore also a random variable. And we can of course compute its expectation:</p>
 <p><strong>Expected Classifier (given <span class="math notranslate nohighlight">\(\mathcal{A}\)</span>)</strong>:</p>
 <div class="math notranslate nohighlight">
 \[\bar{h}=\mathbb{E}_{D∼P^n}[h_D]=\int_{D}h_D\, \text{Pr}(D)\partial D\]</div>
 <p>where <span class="math notranslate nohighlight">\(\text{Pr}(D)\)</span> is the probability of drawing <span class="math notranslate nohighlight">\(D\)</span> from <span class="math notranslate nohighlight">\(P^n\)</span>. Here, <span class="math notranslate nohighlight">\(\bar{h}\)</span> is a weighted average over functions.</p>
-</div></blockquote>
-<blockquote>
-<div><p>We can also use the fact that <span class="math notranslate nohighlight">\(h_D\)</span> is a random variable to compute the expected test error only given <span class="math notranslate nohighlight">\(\mathcal{A}\)</span>, taking the expectation also over <span class="math notranslate nohighlight">\(D\)</span>.</p>
+<p>We can also use the fact that <span class="math notranslate nohighlight">\(h_D\)</span> is a random variable to compute the expected test error only given <span class="math notranslate nohighlight">\(\mathcal{A}\)</span>, taking the expectation also over <span class="math notranslate nohighlight">\(D\)</span>.</p>
 <p><strong>Expected Test Error (given <span class="math notranslate nohighlight">\(\mathcal{A}\)</span>)</strong>:</p>
 <div class="math notranslate nohighlight">
 \[\mathbb{E}_{{(\mathbb{x},y)∼P}\atop{D∼P^n}} \, \Big[{(h_D(\mathbb{x})−y)}^2\Big] = \int_{D}\int_{\mathbb{x}}\int_{y} ({h_D(\mathbb{x})−y)}^2 \, \text{P}(\mathbb{x},y) \, \text{P}(D) \partial y \partial x \partial D\]</div>
 <p>To be clear, <span class="math notranslate nohighlight">\(D\)</span> is our training points and the <span class="math notranslate nohighlight">\((\mathbb{x},y)\)</span> pairs are the test points.</p>
 <p>We are interested in exactly this expression, because it evaluates the quality of a machine learning algorithm <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> with respect to a data distribution <span class="math notranslate nohighlight">\(P(X,Y)\)</span>. In the following we will show that this expression decomposes into three meaningful terms.</p>
-</div></blockquote>
 <div class="margin sidebar">
 <p class="sidebar-title">Copy-Paste Notice!</p>
-<p>This is a copy-paste of the <a class="reference external" href="https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote12.html">lecture 12 of the course cs4780</a>.
-I added some code examples below to allow the students play with the formulas and added some comments and concepts that I thought would be helpful for the students in our class.</p>
+<p>This is a copy-paste of the <a class="reference external" href="https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote12.html">lecture 12 of the course cs4780</a>.</p>
 </div>
 <div class="section" id="decomposition-of-expected-test-error">
 <h2>Decomposition of Expected Test Error<a class="headerlink" href="#decomposition-of-expected-test-error" title="Permalink to this headline">¶</a></h2>
-</div>
-<blockquote>
-<div><div class="amsmath math notranslate nohighlight">
+<div class="amsmath math notranslate nohighlight">
 \[\begin{align*} 
 \mathbb{E}_{\mathbb{x},y,D}\Big[[{h_D(\mathbb{x})−y]}^2 \Big] &amp;= \mathbb{E}_{\mathbb{x},y,D}\Big[\big[{\big(h_D(\mathbb{x})−\bar{h}(\mathbb{x})\big)+\big(\bar{h}(\mathbb{x})−y\big)\big]}^2 \Big] \\ 
 &amp;=\mathbb{E}_{\mathbb{x},D}[{(\bar{h}_D(\mathbb{x})−\bar{h}(\mathbb{x}))}^2]
@@ -439,7 +428,7 @@ I added some code examples below to allow the students play with the formulas an
 <p>Variance: Captures how much your classifier changes if you train on a different training set. How “over-specialized” is your classifier to a particular training set (overfitting)? If we have the best possible model for our training data, how far off are we from the average classifier?</p>
 <p>Bias: What is the inherent error that you obtain from your classifier even with infinite training data? This is due to your classifier being “biased” to a particular kind of solution (e.g. linear classifier). In other words, bias is inherent to your model.</p>
 <p>Noise: How big is the data-intrinsic noise? This error measures ambiguity due to your data distribution and feature representation. You can never beat this, it is an aspect of the data.</p>
-</div></blockquote>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

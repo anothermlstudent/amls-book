@@ -410,8 +410,10 @@ From <a class="bibtex reference internal" href="008_sklearn-pipeline-example.htm
 <p>Add plot with an example to understand the statement visually.</p>
 <p>so how I can estimate the out of sample error and the confidence intervals (the dot and the bars)?</p>
 <p>We can use the following code:</p>
-<p>scores = cross_val_score(reg, X, y, cv=k,scoring=’neg_mean_squared_error’)
-print(“Accuracy: %0.2f (+/- %0.2f)” % (scores.mean(), scores.std() * 1.96))</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">k</span><span class="p">,</span><span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy: </span><span class="si">%0.2f</span><span class="s2"> (+/- </span><span class="si">%0.2f</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">scores</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1.96</span><span class="p">))</span>
+</pre></div>
+</div>
 <p>To understand the explanation we need two theoretical results regarding the statistic <span class="math notranslate nohighlight">\(\bar{X}\)</span>. Which is an unbiased estimator of the mean <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(\hat{\mu}\)</span> score means
 <span class="math notranslate nohighlight">\(\hat{SE}\)</span></p>
@@ -420,7 +422,10 @@ performance <span class="math notranslate nohighlight">\(\hat{\mu}\)</span> +/- 
 </div>
 <div class="section" id="cross-validation">
 <h2>Cross-validation<a class="headerlink" href="#cross-validation" title="Permalink to this headline">¶</a></h2>
-<p>“<strong>cross-validation</strong> can be used to estimate the test error associated with a given statistical learning method in order to evaluate its performance, or to select the appropriate level of flexibility. The process of evaluating a model’s performance is known as <strong>model assessment</strong>, whereas the process of selecting the proper level of flexibility for a model is known as <strong>model selection</strong>.” From <a class="bibtex reference internal" href="#james-introduction-2014" id="id4">[JWHT14]</a>, Pag. 175</p>
+<blockquote>
+<div><p><strong>cross-validation</strong> can be used to estimate the test error associated with a given statistical learning method in order to evaluate its performance, or to select the appropriate level of flexibility. The process of evaluating a model’s performance is known as <strong>model assessment</strong>, whereas the process of selecting the proper level of flexibility for a model is known as <strong>model selection</strong>.”</p>
+<p>From <a class="bibtex reference internal" href="#james-introduction-2014" id="id4">[JWHT14]</a>, Pag. 175</p>
+</div></blockquote>
 <p>There are severla types of <strong>cross-validation</strong> procedures:</p>
 <ul class="simple">
 <li><p>k-fold cross-validation</p></li>
@@ -428,8 +433,14 @@ performance <span class="math notranslate nohighlight">\(\hat{\mu}\)</span> +/- 
 </ul>
 <p>Now that we have our cross-validation scores and the estimates of the standard errors, <strong>how should we select the best hyperparameter for our model?</strong>
 We can follow the <strong>one-standard-error rule</strong>:</p>
-<p><em>…”if we repeated cross-validation using a different set of cross-validation folds, then the precise model with the lowest estimated test error would surely change. In this setting, we can select a model using the one-standard-error rule. We first calculate the standard error of the estimated test MSE for each model size, and then select the smallest model for which the estimated test error is within one standard error of the lowest point on the curve.”</em> From <a class="bibtex reference internal" href="#james-introduction-2014" id="id5">[JWHT14]</a> Pag. 214</p>
-<p><em>…”One problem is that no unbiased estimators of the variance of such average error estimator exist <a class="bibtex reference internal" href="#bengio-unbiased-2004" id="id6">[BG04]</a>, but approximations are typically used.”</em> From <a class="bibtex reference internal" href="008_sklearn-pipeline-example.html#goodfellow-deep-2016" id="id7">[GBC16]</a> Pag. 119</p>
+<blockquote>
+<div><p>…”if we repeated cross-validation using a different set of cross-validation folds, then the precise model with the lowest estimated test error would surely change. In this setting, we can select a model using the one-standard-error rule. We first calculate the standard error of the estimated test MSE for each model size, and then select the smallest model for which the estimated test error is within one standard error of the lowest point on the curve.”</p>
+<p>From <a class="bibtex reference internal" href="#james-introduction-2014" id="id5">[JWHT14]</a> Pag. 214</p>
+</div></blockquote>
+<blockquote>
+<div><p>…”One problem is that no unbiased estimators of the variance of such average error estimator exist <a class="bibtex reference internal" href="#bengio-unbiased-2004" id="id6">[BG04]</a>, but approximations are typically used.”</p>
+<p>From <a class="bibtex reference internal" href="008_sklearn-pipeline-example.html#goodfellow-deep-2016" id="id7">[GBC16]</a> Pag. 119</p>
+</div></blockquote>
 </div>
 <div class="section" id="discussions">
 <h2>Discussions<a class="headerlink" href="#discussions" title="Permalink to this headline">¶</a></h2>
@@ -533,18 +544,6 @@ https://github.com/scikit-learn/scikit-learn/pull/6072</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ -9.5593196 , -37.69944289, -12.77935441,  -2.11896031])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">16</span><span class="o">/</span><span class="mi">4</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.0
 </pre></div>
 </div>
 </div>

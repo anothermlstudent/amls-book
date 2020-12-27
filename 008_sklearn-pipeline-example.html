@@ -95,7 +95,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Solution. Use Cholesky decomposition" href="800_computational-stability.html" />
+    <link rel="next" title="PCA one level deeper" href="010_pca-deeper.html" />
     <link rel="prev" title="Gaussian Processes" href="007_gaussian-processes.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -176,6 +176,31 @@ commentsRunWhenDOMLoaded(addUtterances);
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Sklearn pipeline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="010_pca-deeper.html">
+   PCA one level deeper
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="010_pca-deeper.html#scale-or-not-to-scale">
+   Scale or not to scale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="010_pca-deeper.html#covarianza">
+   Covarianza
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="010_pca-deeper.html#references">
+   References
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="011_statistical-decision-theory.html">
+   Statistical Decision Theory
   </a>
  </li>
  <li class="toctree-l1">
@@ -437,10 +462,10 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean_fit_time                                                          0.002049
-std_fit_time                                                           0.000079
-mean_score_time                                                        0.001387
-std_score_time                                                         0.000075
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean_fit_time                                                          0.001984
+std_fit_time                                                           0.000376
+mean_score_time                                                        0.001176
+std_score_time                                                         0.000042
 param_model                                                  LinearRegression()
 param_model__max_depth                                                      NaN
 param_polynomial_features                                                   NaN
@@ -490,7 +515,7 @@ Name: 7, dtype: object
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="007_gaussian-processes.html" title="previous page">Gaussian Processes</a>
-    <a class='right-next' id="next-link" href="800_computational-stability.html" title="next page">Solution. Use Cholesky decomposition</a>
+    <a class='right-next' id="next-link" href="010_pca-deeper.html" title="next page">PCA one level deeper</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

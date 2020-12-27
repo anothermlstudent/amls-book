@@ -1,0 +1,134 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/nbclient/client.py", line 1087, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/asyncio/base_events.py", line 587, in run_until_complete
+    return future.result()
+  File "/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/nbclient/client.py", line 541, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/nbclient/client.py", line 832, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/nbclient/client.py", line 740, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Plot LML landscape
+plt.figure(figsize=(8,5))
+# noise level
+theta0 = np.logspace(-1, 3, 49)
+# length scale
+theta1 = np.logspace(-0.5, 0.5, 100)
+Theta0, Theta1 = np.meshgrid(theta0, theta1)
+LML = [[gp.log_marginal_likelihood(np.log([Theta0[i, j], Theta1[i, j]]))
+        for i in range(Theta0.shape[0])] for j in range(Theta0.shape[1])]
+LML = np.array(LML).T
+
+vmin, vmax = (-LML).min(), (-LML).max()
+#vmax = 50
+level = np.around(np.logspace(np.log10(vmin), np.log10(vmax), 50), decimals=1)
+
+ind = np.unravel_index(np.argmax(LML, axis=None), LML.shape)
+min_theta0 = theta0[ind[1]]
+min_theta1 = theta1[ind[0]]
+plt.scatter(theta0[ind[1]],theta1[ind[0]],color='r')
+
+plt.contour(Theta0, Theta1, -LML,
+            levels=level, norm=colors.LogNorm(vmin=vmin, vmax=vmax))
+plt.colorbar()
+plt.xscale("log")
+plt.yscale("log")
+plt.xlabel("Noise-level")
+plt.ylabel("Length-scale")
+plt.title(f"Log-marginal-likelihood \n Noise {min_theta0} \n Length {min_theta1} \n Likelihood {LML.max()}")
+plt.tight_layout()
+
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-23-7134b029e623>[0m in [0;36m<module>[0;34m[0m
+[1;32m     20[0m [0;34m[0m[0m
+[1;32m     21[0m plt.contour(Theta0, Theta1, -LML,
+[0;32m---> 22[0;31m             levels=level, norm=colors.LogNorm(vmin=vmin, vmax=vmax))
+[0m[1;32m     23[0m [0mplt[0m[0;34m.[0m[0mcolorbar[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     24[0m [0mplt[0m[0;34m.[0m[0mxscale[0m[0;34m([0m[0;34m"log"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/matplotlib/pyplot.py[0m in [0;36mcontour[0;34m(data, *args, **kwargs)[0m
+[1;32m   2567[0m     __ret = gca().contour(
+[1;32m   2568[0m         [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0;34m([0m[0;34m{[0m[0;34m"data"[0m[0;34m:[0m [0mdata[0m[0;34m}[0m [0;32mif[0m [0mdata[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m [0;32melse[0m [0;34m{[0m[0;34m}[0m[0;34m)[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2569[0;31m         **kwargs)
+[0m[1;32m   2570[0m     [0;32mif[0m [0m__ret[0m[0;34m.[0m[0m_A[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m [0msci[0m[0;34m([0m[0m__ret[0m[0;34m)[0m  [0;31m# noqa[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2571[0m     [0;32mreturn[0m [0m__ret[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/matplotlib/__init__.py[0m in [0;36minner[0;34m(ax, data, *args, **kwargs)[0m
+[1;32m   1445[0m     [0;32mdef[0m [0minner[0m[0;34m([0m[0max[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0mdata[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1446[0m         [0;32mif[0m [0mdata[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1447[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0max[0m[0;34m,[0m [0;34m*[0m[0mmap[0m[0;34m([0m[0msanitize_sequence[0m[0;34m,[0m [0margs[0m[0;34m)[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1448[0m [0;34m[0m[0m
+[1;32m   1449[0m         [0mbound[0m [0;34m=[0m [0mnew_sig[0m[0;34m.[0m[0mbind[0m[0;34m([0m[0max[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/matplotlib/axes/_axes.py[0m in [0;36mcontour[0;34m(self, *args, **kwargs)[0m
+[1;32m   6325[0m     [0;32mdef[0m [0mcontour[0m[0;34m([0m[0mself[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   6326[0m         [0mkwargs[0m[0;34m[[0m[0;34m'filled'[0m[0;34m][0m [0;34m=[0m [0;32mFalse[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 6327[0;31m         [0mcontours[0m [0;34m=[0m [0mmcontour[0m[0;34m.[0m[0mQuadContourSet[0m[0;34m([0m[0mself[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   6328[0m         [0mself[0m[0;34m.[0m[0m_request_autoscale_view[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   6329[0m         [0;32mreturn[0m [0mcontours[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/matplotlib/contour.py[0m in [0;36m__init__[0;34m(self, ax, levels, filled, linewidths, linestyles, hatches, alpha, origin, extent, cmap, colors, norm, vmin, vmax, extend, antialiased, nchunk, locator, transform, *args, **kwargs)[0m
+[1;32m    863[0m         [0;32mif[0m [0mvmax[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    864[0m             [0mself[0m[0;34m.[0m[0mnorm[0m[0;34m.[0m[0mvmax[0m [0;34m=[0m [0mvmax[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 865[0;31m         [0mself[0m[0;34m.[0m[0m_process_colors[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    866[0m [0;34m[0m[0m
+[1;32m    867[0m         [0mself[0m[0;34m.[0m[0mallsegs[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mallkinds[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_get_allsegs_and_allkinds[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/matplotlib/contour.py[0m in [0;36m_process_colors[0;34m(self)[0m
+[1;32m   1248[0m             [0mself[0m[0;34m.[0m[0mcvalues[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mlayers[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1249[0m         [0mself[0m[0;34m.[0m[0mset_array[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mlevels[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1250[0;31m         [0mself[0m[0;34m.[0m[0mautoscale_None[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1251[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0mextend[0m [0;32min[0m [0;34m([0m[0;34m'both'[0m[0;34m,[0m [0;34m'max'[0m[0;34m,[0m [0;34m'min'[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1252[0m             [0mself[0m[0;34m.[0m[0mnorm[0m[0;34m.[0m[0mclip[0m [0;34m=[0m [0;32mFalse[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/matplotlib/cm.py[0m in [0;36mautoscale_None[0;34m(self)[0m
+[1;32m    448[0m             [0;32mraise[0m [0mTypeError[0m[0;34m([0m[0;34m'You must first set_array for mappable'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    449[0m         [0mself[0m[0;34m.[0m[0mnorm[0m[0;34m.[0m[0mautoscale_None[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_A[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 450[0;31m         [0mself[0m[0;34m.[0m[0mchanged[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    451[0m [0;34m[0m[0m
+[1;32m    452[0m     [0;32mdef[0m [0m_add_checker[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mchecker[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/matplotlib/contour.py[0m in [0;36mchanged[0;34m(self)[0m
+[1;32m   1082[0m     [0;32mdef[0m [0mchanged[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1083[0m         tcolors = [(tuple(rgba),)
+[0;32m-> 1084[0;31m                    for rgba in self.to_rgba(self.cvalues, alpha=self.alpha)]
+[0m[1;32m   1085[0m         [0mself[0m[0;34m.[0m[0mtcolors[0m [0;34m=[0m [0mtcolors[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1086[0m         [0mhatches[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mhatches[0m [0;34m*[0m [0mlen[0m[0;34m([0m[0mtcolors[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/matplotlib/cm.py[0m in [0;36mto_rgba[0;34m(self, x, alpha, bytes, norm)[0m
+[1;32m    330[0m         [0mx[0m [0;34m=[0m [0mma[0m[0;34m.[0m[0masarray[0m[0;34m([0m[0mx[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    331[0m         [0;32mif[0m [0mnorm[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 332[0;31m             [0mx[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mnorm[0m[0;34m([0m[0mx[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    333[0m         [0mrgba[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mcmap[0m[0;34m([0m[0mx[0m[0;34m,[0m [0malpha[0m[0;34m=[0m[0malpha[0m[0;34m,[0m [0mbytes[0m[0;34m=[0m[0mbytes[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    334[0m         [0;32mreturn[0m [0mrgba[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/matplotlib/colors.py[0m in [0;36m__call__[0;34m(self, value, clip)[0m
+[1;32m   1190[0m [0;34m[0m[0m
+[1;32m   1191[0m         [0mself[0m[0;34m.[0m[0mautoscale_None[0m[0;34m([0m[0mresult[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1192[0;31m         [0mself[0m[0;34m.[0m[0m_check_vmin_vmax[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1193[0m         [0mvmin[0m[0;34m,[0m [0mvmax[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mvmin[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mvmax[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1194[0m         [0;32mif[0m [0mvmin[0m [0;34m==[0m [0mvmax[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/matplotlib/colors.py[0m in [0;36m_check_vmin_vmax[0;34m(self)[0m
+[1;32m   1179[0m             [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34m"minvalue must be less than or equal to maxvalue"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1180[0m         [0;32melif[0m [0mself[0m[0;34m.[0m[0mvmin[0m [0;34m<=[0m [0;36m0[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1181[0;31m             [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34m"minvalue must be positive"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1182[0m [0;34m[0m[0m
+[1;32m   1183[0m     [0;32mdef[0m [0m__call__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mvalue[0m[0;34m,[0m [0mclip[0m[0;34m=[0m[0;32mNone[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: minvalue must be positive
+ValueError: minvalue must be positive
+

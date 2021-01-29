@@ -11,6 +11,7 @@
   - file: 008_sklearn-pipeline-example
   - file: 010_pca-deeper
   - file: 011_statistical-decision-theory
+  - file: 012_multicollinearity
   - file: 800_computational-stability
   - file: 995_kernel-demo
   - file: 996_ploting-tools

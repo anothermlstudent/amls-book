@@ -189,6 +189,11 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="012_multicollinearity.html">
+   Multicollinearity.
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="800_computational-stability.html">
    Poor Conditioning
   </a>
@@ -375,8 +380,8 @@ Vamos a mostrar que las componentes principales de <span class="math notranslate
 <p>Empezamos definiendo, las siguientes matrices:</p>
 <p><span class="math notranslate nohighlight">\(n\)</span> es el número de samples,
 <span class="math notranslate nohighlight">\(\bar{X}\)</span> es la matriz de <span class="math notranslate nohighlight">\(n\)</span> filas, dónde cada fila tenemos el vector promedio de las samples.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8bb9723d-9c05-4bd1-a98b-30efe39b08db">
-<span class="eqno">(7)<a class="headerlink" href="#equation-8bb9723d-9c05-4bd1-a98b-30efe39b08db" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-93de2650-a971-41cd-93d3-b670b305314a">
+<span class="eqno">(7)<a class="headerlink" href="#equation-93de2650-a971-41cd-93d3-b670b305314a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 B := X - \bar{X} \\
 C := B^TB \\
 \end{equation}\]</div>
@@ -385,13 +390,13 @@ $<span class="math notranslate nohighlight">\(C V = \overbrace{V}^{\text{eigenve
 <p>Las componentes principales de <span class="math notranslate nohighlight">\(X\)</span>, están dadas por <span class="math notranslate nohighlight">\(T\)</span>:
 $<span class="math notranslate nohighlight">\( T = BV \)</span>$</p>
 <p>como la Singular Value Decomposition de <span class="math notranslate nohighlight">\(B\)</span> nos da</p>
-<div class="amsmath math notranslate nohighlight" id="equation-891fea65-bf30-4cab-b43d-7f7b72655803">
-<span class="eqno">(8)<a class="headerlink" href="#equation-891fea65-bf30-4cab-b43d-7f7b72655803" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-33a58e05-7c70-403d-ada1-04e3228d13ca">
+<span class="eqno">(8)<a class="headerlink" href="#equation-33a58e05-7c70-403d-ada1-04e3228d13ca" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 B = U \Sigma V^T \\ 
 \end{equation}\]</div>
 <p>y como <span class="math notranslate nohighlight">\(V^TV=I\)</span>, podemos probar que <span class="math notranslate nohighlight">\(T\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-81deebcb-9b89-4f7c-b472-a69c315df084">
-<span class="eqno">(9)<a class="headerlink" href="#equation-81deebcb-9b89-4f7c-b472-a69c315df084" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1a53a5d9-97f6-4ec5-8124-8bf202f7994b">
+<span class="eqno">(9)<a class="headerlink" href="#equation-1a53a5d9-97f6-4ec5-8124-8bf202f7994b" title="Permalink to this equation">¶</a></span>\[\begin{align}
 T = B V &amp;= U \Sigma V^T V \\
 &amp;=  U \Sigma I \\
 &amp;= U \Sigma.

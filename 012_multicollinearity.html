@@ -1,0 +1,678 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multicollinearity. &#8212; amls</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "github-org/github-repo");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://anothermlstudent.github.io/amls-book/012_multicollinearity.html" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://anothermlstudent.github.io/amls-book/012_multicollinearity.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Multicollinearity." />
+<meta property="og:description" content="Multicollinearity.  1. Definition.  According to Wikipedia:  collinearity is a linear association between two explanatory variables.  multicollinearity is a lin" />
+<meta property="og:image"       content="https://anothermlstudent.github.io/amls-book/_static/logo-amls.png" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo-amls.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">amls</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to another machine learning student (note)book
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  ML Notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="001_dataset-regression.html">
+   Regression Dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="002_machine-learning-pipeline.html">
+   Machine Learning pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="003_bias-vs-variance%28theory%29.html">
+   Bias-Variance trade-off (theory)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="005_bias-vs-variance%28practice%29.html">
+   Bias-Variance trade-off (practice, my notes)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="007_gaussian-processes.html">
+   Gaussian Processes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="008_sklearn-pipeline-example.html">
+   Sklearn pipeline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="010_pca-deeper.html">
+   PCA one level deeper
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="011_statistical-decision-theory.html">
+   Statistical Decision Theory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="800_computational-stability.html">
+   Poor Conditioning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="995_kernel-demo.html">
+   Kernel Demo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="996_ploting-tools.html">
+   Different ploting tools
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="997_appendix.html">
+   Appendix
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Receipes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="998_basic-widgets.html">
+   Basic widgets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="999_jupyterbook_cookbook.html">
+   Jupyter book
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/012_multicollinearity.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/anothermlstudent/amls-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/anothermlstudent/amls-book/issues/new?title=Issue%20on%20page%20%2F012_multicollinearity.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/anothermlstudent/amls-book/edit/main/amls/012_multicollinearity.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/anothermlstudent/amls-book/main?urlpath=tree/amls/012_multicollinearity.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/anothermlstudent/amls-book/blob/main/amls/012_multicollinearity.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definition">
+   1. Definition.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#when-is-multicollinearity-a-problem-and-why">
+   2. When is multicollinearity a problem and why?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-detect-multicollinearity">
+   3. How to detect multicollinearity?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-scope-with-multicollinearity">
+   4. How to scope with multicollinearity?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References.
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="multicollinearity">
+<h1>Multicollinearity.<a class="headerlink" href="#multicollinearity" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="definition">
+<h2>1. Definition.<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h2>
+<p>According to <a class="reference external" href="https://en.wikipedia.org/wiki/Multicollinearity#:~:text=Multicollinearity%20refers%20to%20a%20situation,equal%20to%201%20or%20%E2%88%9A21.">Wikipedia</a>:</p>
+<ul class="simple">
+<li><p><strong>collinearity</strong> is a linear association between two explanatory variables.</p></li>
+<li><p><strong>multicollinearity</strong> is a linear association between more than two explanatory variables within a dataset:</p>
+<ul>
+<li><p><strong>perfect</strong> multicollinearity occurs when linear correlation between our variables is equal to 1 or -1.</p></li>
+<li><p><strong>nearly perfect</strong> multicollinearity arises when there is already approximate linear relationship between variables.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="when-is-multicollinearity-a-problem-and-why">
+<h2>2. When is multicollinearity a problem and why?<a class="headerlink" href="#when-is-multicollinearity-a-problem-and-why" title="Permalink to this headline">¶</a></h2>
+<p>Let’s examine the case of perfect multicollinearity. It means, among some variables from our dataset, there exists a linear relationship:</p>
+<p><span class="math notranslate nohighlight">\(\lambda_0 + \lambda_1 * X_{1i} + \lambda_2 * X_{2i} + ... + \lambda_k * X_{ki} = 0\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(X_{ki}\)</span> is the ith observartion on the kth explanatory variable, and <span class="math notranslate nohighlight">\(\lambda_{k}\)</span> is a constant.</p>
+<p>For a multiple regression equation, where <span class="math notranslate nohighlight">\(X_{1}, ... X_{k}\)</span> are the explanatory variables and <span class="math notranslate nohighlight">\(Y\)</span> the target variable, we would have the following equation:</p>
+<p><span class="math notranslate nohighlight">\(Y_{i} =  \beta_{0} + \beta_{1} * X_{1i} + ... + \beta_{k} * X_{ki} + \epsilon{i}\)</span></p>
+<p>Identifying the <span class="math notranslate nohighlight">\(\beta\)</span> with OLS (Ordinary Least Squares) implies that:</p>
+<p><span class="math notranslate nohighlight">\(Y = X * \beta + \epsilon &lt;=&gt;
+X^T * Y = X^T * X * \hat{\beta}  &lt;=&gt; 
+(X^T * X) ^{-1} * X^T * Y = \hat{\beta}  \)</span></p>
+<p>With correlated variables, the rank of square matrix <span class="math notranslate nohighlight">\(X^TX\)</span> is not k anymore, which makes it not invertible.</p>
+<p>The issue with nearly perfect collinearity stays in the sense that even though existing, computer may not be able to compute or appromixate an inverse as the matrix is ill defined. Any results will be very sensitive to slighlty changes in the data, due to roundings effects. It may be very <strong>inaccurate and sample dependent.</strong></p>
+<p>In practice this causes therefore problems when:</p>
+<ul class="simple">
+<li><p>we need to <strong>identify significant variables</strong> from a multivariable regression. (the standard error will be higher).</p></li>
+<li><p>we need to <strong>interpret coefficients from a mutivariable regression.</strong></p></li>
+<li><p>we need to <strong>avoid overfitting.</strong></p></li>
+</ul>
+</div>
+<div class="section" id="how-to-detect-multicollinearity">
+<h2>3. How to detect multicollinearity?<a class="headerlink" href="#how-to-detect-multicollinearity" title="Permalink to this headline">¶</a></h2>
+<p>A good way to detect multicollinearity and which are the affected variables is to use the <strong>VIF (Variance Inflation Factor)</strong>.</p>
+<p>In practice, this is an index which tells how much the variance of a coefficient is increased by collinearity.
+It is determined in the following way:</p>
+<ol class="simple">
+<li><p>we run OLS regression to determine <span class="math notranslate nohighlight">\(X_{1}\)</span> based on all the other <span class="math notranslate nohighlight">\(X_{i}\)</span> variables.
+<span class="math notranslate nohighlight">\(X_{1} = \alpha_{0} + \alpha_{2} * X_{2} + ... + \alpha_{k} * X_{k}\)</span></p></li>
+<li><p>we calculate VIF index as following:
+<span class="math notranslate nohighlight">\(VIF_{1} = 1 / (1 - R^2_{1})\)</span> with <span class="math notranslate nohighlight">\(R^2\)</span> determined from step 1.</p></li>
+<li><p>As a rule of thumb, if <strong>VIF &gt; 5</strong>, it means multi-collinearity is there. <strong>VIF &gt; 10</strong> means there is high multicolinearity. (Indeed, the higher <span class="math notranslate nohighlight">\(R^2\)</span> is, the greater the propertion of variance of <span class="math notranslate nohighlight">\(X_{1}\)</span> is predictable from the other <span class="math notranslate nohighlight">\(X_{k}\)</span> variables.)</p></li>
+</ol>
+<p>In practice with python, with example taken from: https://etav.github.io/python/vif_factor_python.html/</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Imports</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">patsy</span> <span class="kn">import</span> <span class="n">dmatrices</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">from</span> <span class="nn">statsmodels.stats.outliers_influence</span> <span class="kn">import</span> <span class="n">variance_inflation_factor</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/SushmithaPulagam/Fixing-Multicollinearity/master/House%20Sales.csv&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">vif_scores</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">VIF_Scores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    <span class="n">VIF_Scores</span><span class="p">[</span><span class="s2">&quot;Independent Features&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+    <span class="n">VIF_Scores</span><span class="p">[</span><span class="s2">&quot;VIF Scores&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">variance_inflation_factor</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+    <span class="k">return</span> <span class="n">VIF_Scores</span>
+
+<span class="c1"># need to ask Matias about that</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">vif_scores</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">4</span><span class="n">a84e243eb90</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">patsy</span> <span class="kn">import</span> <span class="n">dmatrices</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">statsmodels.stats.outliers_influence</span> <span class="kn">import</span> <span class="n">variance_inflation_factor</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;patsy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="how-to-scope-with-multicollinearity">
+<h2>4. How to scope with multicollinearity?<a class="headerlink" href="#how-to-scope-with-multicollinearity" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>A first way to deal with multicolinearity is to iteratively <strong>drop the variables</strong> with the highest VIF. For instance, let’s drop here the # of Rooms and recalculate VIF.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First drop&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;# of Rooms&quot;</span><span class="p">)</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">vif_scores</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First drop
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Independent Features</th>
+      <th>VIF Scores</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Interior(Sq Ft)</td>
+      <td>27.000350</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td># of Bed</td>
+      <td>16.803246</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td># of Bath</td>
+      <td>12.253809</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Condo Fee</td>
+      <td>8.582433</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Tax</td>
+      <td>10.961302</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>After, we can drop the Interior variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Second drop&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;Interior(Sq Ft)&quot;</span><span class="p">)</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vif_scores</span><span class="p">(</span><span class="n">df1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Second drop
+  Independent Features  VIF Scores
+0             # of Bed    7.515687
+1            # of Bath   10.411790
+2            Condo Fee    8.582383
+3                  Tax   10.240541
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Another approach is to <strong>combine</strong> variables together.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">Total</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;# of Bed&#39;</span><span class="p">]</span> <span class="o">+</span>  <span class="n">df</span><span class="p">[</span><span class="s1">&#39;# of Bath&#39;</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;# of Bed&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;# of Bath&quot;</span><span class="p">)</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">vif_scores</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Independent Features</th>
+      <th>VIF Scores</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Condo Fee</td>
+      <td>7.27979</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Tax</td>
+      <td>7.27979</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ol class="simple">
+<li><p>Other approaches would be to use <strong>PCA</strong> which ends up with uncorrelated variables (but we may loose interpretability) or <strong>PLS instead of OLS</strong> which reduces our set to a smaller set with uncorrelated variables.</p></li>
+<li><p>Finally we can also use <strong>regularization techniques</strong>.</p></li>
+</ol>
+</div>
+<div class="section" id="references">
+<h2>References.<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>https://towardsdatascience.com/multicollinearity-in-data-science-c5f6c0fe6edf</p>
+<p>https://en.wikipedia.org/wiki/Multicollinearity</p>
+<p>https://en.wikipedia.org/wiki/Variance_inflation_factor</p>
+<p>https://etav.github.io/python/vif_factor_python.html</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By AnotherMLStudent<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'G-ZJ79CQ4Z6Z', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>
